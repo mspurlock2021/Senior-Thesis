@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraScroll : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class CameraScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene("Main Menu");
         if ((Input.mousePosition.x > Screen.width - margin && cam.transform.position.x < maximum) || (Input.GetKey(KeyCode.D) && cam.transform.position.x < maximum))
         {
             cam.transform.position = new Vector3(cam.transform.position.x + scrollSpeed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
