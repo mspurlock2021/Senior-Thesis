@@ -6,16 +6,27 @@ using UnityEngine.SceneManagement;
 public class CameraScroll : MonoBehaviour
 {
     public RectTransform cam;
-    public int margin;
+    public float margin;
     public float scrollSpeed;
     public int maximum;
     public int minimum;
+    private float minLowerBound;
+    private float minUpperBound;
+    private float maxUpperBound;
+    private float maxLowerBound;
+    private const float SCREEN_MINIMUM = 0.0f;
+    private float currentScrollSpeed;
+    public bool canScroll;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        minLowerBound = SCREEN_MINIMUM;
+        minUpperBound = Screen.width * margin;
+        maxLowerBound = Screen.width - Screen.width * margin;
+        maxUpperBound = Screen.width;
+        canScroll = true;
     }
 
     // Update is called once per frame
@@ -24,22 +35,25 @@ public class CameraScroll : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene("Main Menu");
 
-        if ((Input.mousePosition.x > Screen.width - margin && cam.transform.position.x < maximum) || (Input.GetKey(KeyCode.D) && cam.transform.position.x < maximum))
+        if (Input.mousePosition.x > maxLowerBound && cam.anchoredPosition.x > maximum && canScroll)
         {
-            cam.anchoredPosition = new Vector2(cam.anchoredPosition.x - scrollSpeed * Time.deltaTime, cam.anchoredPosition.y);
+            currentScrollSpeed = scrollSpeed * (Mathf.InverseLerp(maxLowerBound, maxUpperBound, Input.mousePosition.x));
+            cam.anchoredPosition = new Vector2(cam.anchoredPosition.x - currentScrollSpeed * Time.deltaTime, cam.anchoredPosition.y);
             //cam.transform.position = new Vector3(cam.transform.position.x + scrollSpeed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
         }
-        else if (cam.transform.position.x > maximum)
-            cam.transform.position = new Vector3(maximum, cam.transform.position.y, cam.transform.position.z);
+        //else if (cam.anchoredPosition.x < maximum) ;
+            //cam.transform.position = new Vector3(maximum, cam.transform.position.y, cam.transform.position.z);
 
-        if ((Input.mousePosition.x <  margin && cam.transform.position.x > minimum) || (Input.GetKey(KeyCode.A) && cam.transform.position.x > minimum))
+        if (Input.mousePosition.x < minUpperBound && cam.anchoredPosition.x < minimum && canScroll)
         {
-            cam.transform.position = new Vector3(cam.transform.position.x + scrollSpeed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
+            currentScrollSpeed = scrollSpeed * (Mathf.InverseLerp(minUpperBound, minLowerBound, Input.mousePosition.x));
+            cam.anchoredPosition = new Vector2(cam.anchoredPosition.x + currentScrollSpeed * Time.deltaTime, cam.anchoredPosition.y);
+            //cam.transform.position = new Vector3(cam.transform.position.x + scrollSpeed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
         }
-        else if (cam.transform.position.x < minimum)
-            cam.transform.position = new Vector3(minimum, cam.transform.position.y, cam.transform.position.z);
+        //else if (cam.anchoredPosition.x > minimum) ;
+            //cam.transform.position = new Vector3(minimum, cam.transform.position.y, cam.transform.position.z);
 
-        //Debug.Log(cam.transform.position.y);
+        //Debug.Log(Input.mousePosition.x);
 
     }
 }
