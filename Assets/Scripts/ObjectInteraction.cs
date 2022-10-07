@@ -7,6 +7,7 @@ public class ObjectInteraction : MonoBehaviour
     public GameObject panel;
     public GameObject gameManager;
     private CameraScroll camScroll;
+    public GameObject inventory;
     //private bool panelOpen;
 
     void Start()
@@ -20,6 +21,7 @@ public class ObjectInteraction : MonoBehaviour
         {
             gameManager.GetComponent<CameraScroll>().canScroll = false;
             panel.SetActive(true);
+            inventory.transform.SetAsLastSibling();
             gameManager.GetComponent<PanelActive>().panelOn = true;
         }
         //Debug.Log(panelOpen);

@@ -30,6 +30,7 @@ public class SlideGame : MonoBehaviour
     public GameObject[] Buttons;
     public GameObject[] WinPos;
     public GameObject slideGame;
+    public GameObject[] posterPieces;
 
 
     public void slide(RectTransform clickedTile)
@@ -90,8 +91,16 @@ public class SlideGame : MonoBehaviour
             {
                 //Debug.Log(i);
                 i++;
-                if(i == 9)
+                if (i == 9)
+                {
                     slideGame.SetActive(false);
+                    foreach (GameObject k in posterPieces)
+                    {
+                        k.SetActive(true);
+                    }
+                }
+               
+
             }
             else
             {
