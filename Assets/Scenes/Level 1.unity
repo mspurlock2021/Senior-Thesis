@@ -512,7 +512,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -9014,7 +9014,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poster Outline 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1731472319708069216, guid: 8723d68234eda37419d1e860c4245b4d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8723d68234eda37419d1e860c4245b4d, type: 3}
 --- !u!1001 &780704136803984648
 PrefabInstance:
@@ -9115,7 +9116,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d452bdf2e0c689944acf62ceedfec2de, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8312797692268529950, guid: 245584c2f9b7bcd44ae0c9eca0d61701, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 245584c2f9b7bcd44ae0c9eca0d61701, type: 3}
 --- !u!1001 &924003979078139083
 PrefabInstance:
@@ -9216,7 +9218,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poster Outline 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 354986864607541516, guid: 50a6e5e08e0fe294398316bcb1786c0b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 50a6e5e08e0fe294398316bcb1786c0b, type: 3}
 --- !u!1001 &1272041714156416406
 PrefabInstance:
@@ -9317,7 +9320,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -596581560422482024, guid: 9250f9292f3b19240895e16761fe74c4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9250f9292f3b19240895e16761fe74c4, type: 3}
 --- !u!1001 &1501106278762821473
 PrefabInstance:
@@ -9418,7 +9422,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5806152631070751238, guid: 9507644054c721d468d35e1b98dfafbf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9507644054c721d468d35e1b98dfafbf, type: 3}
 --- !u!1001 &2350673748809307098
 PrefabInstance:
@@ -9519,7 +9524,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poster Outline 12
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4582808989768355365, guid: 3bde6a362558620439e2b1d76bf0f56c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3bde6a362558620439e2b1d76bf0f56c, type: 3}
 --- !u!1001 &3495288985961538481
 PrefabInstance:
@@ -9620,7 +9626,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2733409097801282082, guid: 44a659d8bbb7f1943bf394d74ffa54dd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 44a659d8bbb7f1943bf394d74ffa54dd, type: 3}
 --- !u!1001 &3857564196672168524
 PrefabInstance:
@@ -9721,7 +9728,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poster Outline 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8485408335341852200, guid: afa1d8cddbb2cd240b02b53714ab7c9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: afa1d8cddbb2cd240b02b53714ab7c9d, type: 3}
 --- !u!1001 &4282913348218157833
 PrefabInstance:
@@ -9822,7 +9830,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poster Outline 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3697277169362616043, guid: 5ae8c37f657c8f147b8056f89723ec53, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5ae8c37f657c8f147b8056f89723ec53, type: 3}
 --- !u!1001 &6210651419433040086
 PrefabInstance:
@@ -10020,7 +10029,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 0ac1063093390474482c0def23656f09, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6194229921720986008, guid: 71d4fe4d12eee2f409f638dadd09274b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 71d4fe4d12eee2f409f638dadd09274b, type: 3}
 --- !u!1001 &7220139123212102076
 PrefabInstance:
@@ -10121,7 +10131,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poster Outline 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1352861432138266067, guid: eae7ab8b38d18c64e87b2091c1e11113, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eae7ab8b38d18c64e87b2091c1e11113, type: 3}
 --- !u!1001 &8508031435854127519
 PrefabInstance:
@@ -10222,5 +10233,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poster Outline 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 926200157987549028, guid: f886cb5478e230b47812ad63368acdfb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f886cb5478e230b47812ad63368acdfb, type: 3}

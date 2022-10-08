@@ -23,10 +23,12 @@ public class FollowMouse : MonoBehaviour
     {
         Vector2 movePos;
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasObject.transform as RectTransform, Input.mousePosition, canvasObject.GetComponent<Canvas>().worldCamera, out movePos);
+        //RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasObject.transform as RectTransform, Input.mousePosition, canvasObject.GetComponent<Canvas>().worldCamera, out movePos);
 
-        this.GetComponent<RectTransform>().anchoredPosition = canvasObject.transform.TransformPoint(movePos);
+        //this.GetComponent<RectTransform>().anchoredPosition = canvasObject.transform.TransformPoint(movePos);
 
+        CanvasScaler scaler = canvasObject.GetComponent<CanvasScaler>();
+        this.GetComponent<RectTransform>().anchoredPosition = new Vector2(UnityEngine.Input.mousePosition.x * (scaler.referenceResolution.x / Screen.width), UnityEngine.Input.mousePosition.y * (scaler.referenceResolution.y / Screen.height));
         //Vector2 mousePosition = Camera.main.scree (Input.mousePosition);
 
         //if (Input.GetMouseButtonDown(0))

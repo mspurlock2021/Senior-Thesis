@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6726645219383926889}
   - component: {fileID: 6726645219383926891}
   - component: {fileID: 6726645219383926890}
+  - component: {fileID: 6194229921720986008}
   m_Layer: 5
   m_Name: Poster5
   m_TagString: Untagged
@@ -76,3 +77,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6194229921720986008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726645219383926888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6000c1365d8d9b4c91674d17decd6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasObject: {fileID: 0}
+  mainCam: {fileID: 0}

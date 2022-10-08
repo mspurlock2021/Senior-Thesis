@@ -188,4 +188,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929577b9c7cd5b846a7596a53dc423c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisPosterPiece: {fileID: 7220139123305800599, guid: eae7ab8b38d18c64e87b2091c1e11113, type: 3}
+  thisPosterPiece: {fileID: 593567212649596732, guid: 8723d68234eda37419d1e860c4245b4d, type: 3}
