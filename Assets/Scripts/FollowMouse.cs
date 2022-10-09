@@ -21,14 +21,12 @@ public class FollowMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 movePos;
-
         //RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasObject.transform as RectTransform, Input.mousePosition, canvasObject.GetComponent<Canvas>().worldCamera, out movePos);
 
         //this.GetComponent<RectTransform>().anchoredPosition = canvasObject.transform.TransformPoint(movePos);
 
         CanvasScaler scaler = canvasObject.GetComponent<CanvasScaler>();
-        this.GetComponent<RectTransform>().anchoredPosition = new Vector2(UnityEngine.Input.mousePosition.x * (scaler.referenceResolution.x / Screen.width), UnityEngine.Input.mousePosition.y * (scaler.referenceResolution.y / Screen.height));
+        this.GetComponent<RectTransform>().anchoredPosition = new Vector2(UnityEngine.Input.mousePosition.x * (scaler.referenceResolution.x / Screen.width) - 1000, UnityEngine.Input.mousePosition.y * (scaler.referenceResolution.y / Screen.height) - 500);
         //Vector2 mousePosition = Camera.main.scree (Input.mousePosition);
 
         //if (Input.GetMouseButtonDown(0))

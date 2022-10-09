@@ -10,4 +10,10 @@ public class ButtonPrefab : MonoBehaviour
         gameManager = GameObject.Find("Game Manager");
         gameManager.GetComponent<InventoryFunction>().UsePosterPiece(this.gameObject);
     }
+
+    public void CallFunctionPlacePiece()
+    {
+        gameManager = GameObject.Find("Game Manager");
+        gameManager.GetComponent<InventoryFunction>().PlacePiece(this.gameObject);
+    }
 }

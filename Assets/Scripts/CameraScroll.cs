@@ -41,8 +41,8 @@ public class CameraScroll : MonoBehaviour
             cam.anchoredPosition = new Vector2(cam.anchoredPosition.x - currentScrollSpeed * Time.deltaTime, cam.anchoredPosition.y);
             //cam.transform.position = new Vector3(cam.transform.position.x + scrollSpeed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
         }
-        //else if (cam.anchoredPosition.x < maximum) ;
-            //cam.transform.position = new Vector3(maximum, cam.transform.position.y, cam.transform.position.z);
+        else if (cam.anchoredPosition.x < maximum)
+            cam.anchoredPosition = new Vector2(maximum, 0);
 
         if (Input.mousePosition.x < minUpperBound && cam.anchoredPosition.x < minimum && canScroll)
         {
@@ -50,8 +50,8 @@ public class CameraScroll : MonoBehaviour
             cam.anchoredPosition = new Vector2(cam.anchoredPosition.x + currentScrollSpeed * Time.deltaTime, cam.anchoredPosition.y);
             //cam.transform.position = new Vector3(cam.transform.position.x + scrollSpeed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
         }
-        //else if (cam.anchoredPosition.x > minimum) ;
-            //cam.transform.position = new Vector3(minimum, cam.transform.position.y, cam.transform.position.z);
+        else if (cam.anchoredPosition.x > minimum)
+            cam.anchoredPosition = new Vector2(minimum, 0);
 
         //Debug.Log(Input.mousePosition.x);
 

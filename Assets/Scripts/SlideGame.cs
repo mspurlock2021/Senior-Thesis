@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlideGame : MonoBehaviour
 {
     public GameObject emptySpace;
-    private const float DISTANCE_BETWEEN_TILES = 161f;
+    private const float DISTANCE_BETWEEN_TILES = 201f;
     private Vector2 tempAnchoredPosition;
 
     //public GameObject button1;
@@ -107,6 +107,15 @@ public class SlideGame : MonoBehaviour
                 //Debug.Log(i + "is false");
                 break;
             }
+        }
+    }
+
+    public void CHEAT()
+    {
+        slideGame.SetActive(false);
+        foreach (GameObject k in posterPieces)
+        {
+            k.SetActive(true);
         }
     }
 }
