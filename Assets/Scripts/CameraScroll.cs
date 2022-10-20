@@ -32,8 +32,8 @@ public class CameraScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            SceneManager.LoadScene("Main Menu");
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //    SceneManager.LoadScene("Main Menu");
 
         if (Input.mousePosition.x > maxLowerBound && cam.anchoredPosition.x > maximum && canScroll)
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InventoryFunction : MonoBehaviour
 {
@@ -33,8 +34,8 @@ public class InventoryFunction : MonoBehaviour
     public void GrabObject(GameObject ObjToAddToInv)
     {
         for (int i = 0; i < 12; i++)
-        { 
-            if(filledSlots[i] == false)
+        {
+            if (filledSlots[i] == false)
             {
                 GameObject temp = Instantiate(ObjToAddToInv.GetComponent<PosterPiece>().thisPosterPiece, HotBar[i].transform);
                 temp.GetComponent<InvSlot>().CurrentInventorySlot = i;
@@ -94,6 +95,36 @@ public class InventoryFunction : MonoBehaviour
             {
                 currentlyHeld.GetComponent<FindCorrOutline>().correctPosterPiece.SetActive(true);
                 Destroy(thisPiece);
+                filledSlots[inventorySlotInUse] = false;
+                Destroy(HotBar[inventorySlotInUse].transform.GetChild(0).gameObject);
+                usingInventroy = false;
+            }
+            else
+            {
+                Destroy(thisPiece);
+                HotBar[inventorySlotInUse].transform.GetChild(0).gameObject.SetActive(true);
+                usingInventroy = false;
+            }
+        }
+        else
+        {
+            Destroy(thisPiece);
+            HotBar[inventorySlotInUse].transform.GetChild(0).gameObject.SetActive(true);
+            usingInventroy = false;
+        }
+    }
+
+    public void PlaceObject(GameObject thisPiece)
+    {
+        if (!this.GetComponent<PanelActive>().panelOn)
+        {
+            RectTransform whereToPlace = currentlyHeld.GetComponent<FindCorrOutline>().posterOutlinePiece.GetComponent<RectTransform>();
+            if (Mathf.Sqrt(Mathf.Pow(whereToPlace.anchoredPosition.x - currentlyHeld.GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(whereToPlace.anchoredPosition.y - currentlyHeld.GetComponent<RectTransform>().anchoredPosition.y, 2)) < DISTANCE_TO_PLACE_POSTER_PIECE)
+            {
+                //currentlyHeld.GetComponent<FindCorrOutline>().correctPosterPiece.SetActive(true);
+                SceneManager.LoadScene("Level 2");
+                Destroy(thisPiece);
+                filledSlots[inventorySlotInUse] = false;
                 Destroy(HotBar[inventorySlotInUse].transform.GetChild(0).gameObject);
                 usingInventroy = false;
             }

@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ead345fb98aa34dac06e64ff46822c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kindOfObject: poster
   objToFind: PosterOutline2
-  posterObjToFind: CorrectPoster2
   posterOutlinePiece: {fileID: 0}
   correctPosterPiece: {fileID: 0}

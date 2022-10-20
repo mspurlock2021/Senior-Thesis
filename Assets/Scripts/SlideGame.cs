@@ -8,30 +8,33 @@ public class SlideGame : MonoBehaviour
     private const float DISTANCE_BETWEEN_TILES = 201f;
     private Vector2 tempAnchoredPosition;
 
-    //public GameObject button1;
-    //public GameObject button2;
-    //public GameObject button3;
-    //public GameObject button4;
-    //public GameObject button5;
-    //public GameObject button6;
-    //public GameObject button7;
-    //public GameObject button8;
-
-    //public GameObject winPos1;
-    //public GameObject winPos2;
-    //public GameObject winPos3;
-    //public GameObject winPos4;
-    //public GameObject winPos5;
-    //public GameObject winPos6;
-    //public GameObject winPos7;
-    //public GameObject winPos8;
-    //public GameObject winPosEmpty;
-
     public GameObject[] Buttons;
     public GameObject[] WinPos;
     public GameObject slideGame;
     public GameObject[] posterPieces;
 
+    private Vector2 OriginalSpot1;
+    private Vector2 OriginalSpot2;
+    private Vector2 OriginalSpot3;
+    private Vector2 OriginalSpot4;
+    private Vector2 OriginalSpot5;
+    private Vector2 OriginalSpot6;
+    private Vector2 OriginalSpot7;
+    private Vector2 OriginalSpot8;
+    private Vector2 OriginalSpotEmpty;
+
+    private void Start()
+    {
+        OriginalSpot1 = Buttons[0].GetComponent<RectTransform>().anchoredPosition;
+        OriginalSpot2 = Buttons[1].GetComponent<RectTransform>().anchoredPosition;
+        OriginalSpot3 = Buttons[2].GetComponent<RectTransform>().anchoredPosition;
+        OriginalSpot4 = Buttons[3].GetComponent<RectTransform>().anchoredPosition;
+        OriginalSpot5 = Buttons[4].GetComponent<RectTransform>().anchoredPosition;
+        OriginalSpot6 = Buttons[5].GetComponent<RectTransform>().anchoredPosition;
+        OriginalSpot7 = Buttons[6].GetComponent<RectTransform>().anchoredPosition;
+        OriginalSpot8 = Buttons[7].GetComponent<RectTransform>().anchoredPosition;
+        OriginalSpotEmpty = Buttons[8].GetComponent<RectTransform>().anchoredPosition;
+    }
 
     public void slide(RectTransform clickedTile)
     {
@@ -55,34 +58,6 @@ public class SlideGame : MonoBehaviour
 
     private void CheckWin()
     {
-        //if((button1.GetComponent<RectTransform>().anchoredPosition.magnitude == winPos1.GetComponent<RectTransform>().anchoredPosition.magnitude) && (button2.GetComponent<RectTransform>().anchoredPosition.magnitude == winPos2.GetComponent<RectTransform>().anchoredPosition.magnitude) && (button3.GetComponent<RectTransform>().anchoredPosition.magnitude == winPos3.GetComponent<RectTransform>().anchoredPosition.magnitude) && (button4.GetComponent<RectTransform>().anchoredPosition.magnitude == winPos4.GetComponent<RectTransform>().anchoredPosition.magnitude) && (button5.GetComponent<RectTransform>().anchoredPosition.magnitude == winPos5.GetComponent<RectTransform>().anchoredPosition.magnitude) && (button6.GetComponent<RectTransform>().anchoredPosition.magnitude == winPos6.GetComponent<RectTransform>().anchoredPosition.magnitude) && (button7.GetComponent<RectTransform>().anchoredPosition.magnitude == winPos7.GetComponent<RectTransform>().anchoredPosition.magnitude) && (button8.GetComponent<RectTransform>().anchoredPosition.magnitude == winPos8.GetComponent<RectTransform>().anchoredPosition.magnitude) && (emptySpace.GetComponent<RectTransform>().anchoredPosition.magnitude == winPosEmpty.GetComponent<RectTransform>().anchoredPosition.magnitude))
-        //{
-        //    slideGame.SetActive(false);
-        //    Debug.Log("gone!");
-        //}
-        //else
-        //{
-        //    //Debug.Log(button1.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(winPos1.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(button2.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(winPos2.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(button3.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(winPos3.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(button4.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(winPos4.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(button5.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(winPos5.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(button6.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(winPos6.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(button7.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(winPos7.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(button8.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(winPos8.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(emptySpace.GetComponent<RectTransform>().anchoredPosition.magnitude);
-        //    //Debug.Log(winPosEmpty.GetComponent<RectTransform>().anchoredPosition.magnitude);
-
-        //}
-
         int i = 0;
 
         foreach (GameObject tempButton in Buttons)
@@ -117,5 +92,18 @@ public class SlideGame : MonoBehaviour
         {
             k.SetActive(true);
         }
+    }
+
+    public void ResetSlideGame()
+    {
+        Buttons[0].GetComponent<RectTransform>().anchoredPosition = OriginalSpot1;
+        Buttons[1].GetComponent<RectTransform>().anchoredPosition = OriginalSpot2;
+        Buttons[2].GetComponent<RectTransform>().anchoredPosition = OriginalSpot3;
+        Buttons[3].GetComponent<RectTransform>().anchoredPosition = OriginalSpot4;
+        Buttons[4].GetComponent<RectTransform>().anchoredPosition = OriginalSpot5;
+        Buttons[5].GetComponent<RectTransform>().anchoredPosition = OriginalSpot6;
+        Buttons[6].GetComponent<RectTransform>().anchoredPosition = OriginalSpot7;
+        Buttons[7].GetComponent<RectTransform>().anchoredPosition = OriginalSpot8;
+        Buttons[8].GetComponent<RectTransform>().anchoredPosition = OriginalSpotEmpty;
     }
 }

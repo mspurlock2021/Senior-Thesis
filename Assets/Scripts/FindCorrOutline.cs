@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class FindCorrOutline : MonoBehaviour
 {
+    public string kindOfObject;
     public string objToFind;
     public GameObject posterOutlinePiece;
     public GameObject correctPosterPiece;
     private void Start()
     {
-        posterOutlinePiece = GameObject.Find(objToFind);
-        correctPosterPiece = posterOutlinePiece.GetComponent<PosterPiece>().thisPosterPiece;
+        if (kindOfObject == "poster")
+        {
+            posterOutlinePiece = GameObject.Find(objToFind);
+            correctPosterPiece = posterOutlinePiece.GetComponent<PosterPiece>().thisPosterPiece;
+        }
+        if (kindOfObject == "key")
+            posterOutlinePiece = GameObject.Find(objToFind);
     }
 }
