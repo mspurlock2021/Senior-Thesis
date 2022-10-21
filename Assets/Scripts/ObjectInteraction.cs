@@ -8,11 +8,20 @@ public class ObjectInteraction : MonoBehaviour
     public GameObject gameManager;
     private CameraScroll camScroll;
     public GameObject inventory;
+    public AudioClip openPanel;
+    private AudioSource openPanelSource;
+
     //private bool panelOpen;
 
     void Start()
     {
+        openPanelSource = GetComponent<AudioSource>();
         //camScroll = gameManager.GetComponent<CameraScroll>();
+    }
+
+    private void Awake()
+    {
+        openPanelSource = GetComponent<AudioSource>();
     }
 
     public void turnOnPanel()
@@ -23,6 +32,8 @@ public class ObjectInteraction : MonoBehaviour
             panel.SetActive(true);
             inventory.transform.SetAsLastSibling();
             gameManager.GetComponent<PanelActive>().panelOn = true;
+            openPanelSource.pitch = Random.Range(0.8f, 1f);
+            openPanelSource.PlayOneShot(openPanel, 0.2f);
         }
         //Debug.Log(panelOpen);
     }

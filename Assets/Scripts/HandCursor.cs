@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvestigateCursor : MonoBehaviour
+public class HandCursor : MonoBehaviour
 {
-    public Texture2D investigateCursor;
+    public Texture2D handCursor;
     public Texture2D normalCursor;
     public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 InvestHotspot;
+    public Vector2 handHotspot;
     public Vector2 NormHotspot;
 
     public void OnMouseInspectEnter()
     {
-        Cursor.SetCursor(investigateCursor, InvestHotspot, cursorMode);
+        Cursor.SetCursor(handCursor, handHotspot, cursorMode);
     }
 
     public void OnMouseInspectExit()

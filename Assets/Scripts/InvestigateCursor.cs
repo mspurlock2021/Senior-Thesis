@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvestigateCursor : MonoBehaviour
+public class CustomCursor : MonoBehaviour
 {
     public Texture2D investigateCursor;
     public Texture2D normalCursor;

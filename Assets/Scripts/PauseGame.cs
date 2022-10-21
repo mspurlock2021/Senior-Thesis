@@ -23,6 +23,15 @@ public class PauseGame : MonoBehaviour
         pauseButton.SetActive(true);
     }
 
+    public void RestartButtonPressed()
+    {
+        this.GetComponent<PanelActive>().panelOn = false;
+        this.GetComponent<CameraScroll>().canScroll = true;
+        pausePanel.SetActive(false);
+        pauseButton.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void MainMenuPressed()
     {
         SceneManager.LoadScene("Main Menu");

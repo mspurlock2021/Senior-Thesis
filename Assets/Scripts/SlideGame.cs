@@ -7,6 +7,7 @@ public class SlideGame : MonoBehaviour
     public GameObject emptySpace;
     private const float DISTANCE_BETWEEN_TILES = 201f;
     private Vector2 tempAnchoredPosition;
+    public GameObject gameManager;
 
     public GameObject[] Buttons;
     public GameObject[] WinPos;
@@ -23,6 +24,10 @@ public class SlideGame : MonoBehaviour
     private Vector2 OriginalSpot8;
     private Vector2 OriginalSpotEmpty;
 
+    private AudioSource slideSource;
+    public AudioClip slideClip;
+    public AudioClip win;
+
     private void Start()
     {
         OriginalSpot1 = Buttons[0].GetComponent<RectTransform>().anchoredPosition;
@@ -34,12 +39,16 @@ public class SlideGame : MonoBehaviour
         OriginalSpot7 = Buttons[6].GetComponent<RectTransform>().anchoredPosition;
         OriginalSpot8 = Buttons[7].GetComponent<RectTransform>().anchoredPosition;
         OriginalSpotEmpty = Buttons[8].GetComponent<RectTransform>().anchoredPosition;
+
+        slideSource = GetComponent<AudioSource>();
     }
 
     public void slide(RectTransform clickedTile)
     {
         if (Mathf.Sqrt(Mathf.Pow(clickedTile.anchoredPosition.x - emptySpace.GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(clickedTile.anchoredPosition.y - emptySpace.GetComponent<RectTransform>().anchoredPosition.y, 2)) < DISTANCE_BETWEEN_TILES)
         {
+            slideSource.pitch = Random.Range(0.8f, 1f);
+            slideSource.PlayOneShot(slideClip, 0.2f);
             //Debug.Log("it worked");
             //Debug.Log(Mathf.Sqrt(Mathf.Pow(clickedTile.anchoredPosition.x - emptySpace.GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(clickedTile.anchoredPosition.y - emptySpace.GetComponent<RectTransform>().anchoredPosition.y, 2)));
             tempAnchoredPosition = emptySpace.GetComponent<RectTransform>().anchoredPosition;
@@ -68,6 +77,7 @@ public class SlideGame : MonoBehaviour
                 i++;
                 if (i == 9)
                 {
+                    gameManager.GetComponent<WinSound>().PlayWinSound();
                     slideGame.SetActive(false);
                     foreach (GameObject k in posterPieces)
                     {
@@ -87,6 +97,7 @@ public class SlideGame : MonoBehaviour
 
     public void CHEAT()
     {
+        gameManager.GetComponent<WinSound>().PlayWinSound();
         slideGame.SetActive(false);
         foreach (GameObject k in posterPieces)
         {

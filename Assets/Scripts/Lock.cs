@@ -19,10 +19,13 @@ public class Lock : MonoBehaviour
     public GameObject key;
     public GameObject lockPanel;
 
+    private AudioSource lockClickSource;
+    public AudioClip lockClickClip;
 
     // Start is called before the first frame update
     void Start()
     {
+        lockClickSource = GetComponent<AudioSource>();
         currentSlot1 = 0;
         currentSlot2 = 0;
         currentSlot3 = 0;
@@ -63,13 +66,18 @@ public class Lock : MonoBehaviour
                 break;
         }
 
+
+        lockClickSource.pitch = Random.Range(0.8f, 1f);
+        lockClickSource.PlayOneShot(lockClickClip, 0.2f);
+
         if (currentSlot1 == 5 && currentSlot2 == 6 && currentSlot3 == 9 && currentSlot4 == 0)
         {
+            GetComponent<WinSound>().PlayWinSound();
             drawer.SetActive(true);
             drawerText.SetActive(true);
             key.SetActive(true);
             lockPanel.SetActive(false);
-            
+
         }
     }
 
