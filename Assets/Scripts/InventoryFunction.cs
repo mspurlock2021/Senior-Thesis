@@ -22,8 +22,10 @@ public class InventoryFunction : MonoBehaviour
     public AudioClip pickupClip;
     public AudioClip placePosterPiece;
     private int piecesPlaced;
+    public GameObject[] correctPosterPiecesCHEAT;
     private void Start()
     {
+        correctPosterPiecesCHEAT = new GameObject[12];
         piecesPlaced = 0;
         pickupSource = GetComponent<AudioSource>();
         for (int i = 0; i < 12; i++)
@@ -159,6 +161,14 @@ public class InventoryFunction : MonoBehaviour
             Destroy(thisPiece);
             HotBar[inventorySlotInUse].transform.GetChild(0).gameObject.SetActive(true);
             usingInventroy = false;
+        }
+    }
+
+    public void PosterCHEAT()
+    {
+        for (int i = 0; i < 12; i++)
+        {
+            correctPosterPiecesCHEAT[i].SetActive(true);
         }
     }
 }
