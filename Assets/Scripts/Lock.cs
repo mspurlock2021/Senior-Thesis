@@ -68,7 +68,7 @@ public class Lock : MonoBehaviour
 
 
         lockClickSource.pitch = Random.Range(0.8f, 1f);
-        lockClickSource.PlayOneShot(lockClickClip, 0.2f);
+        lockClickSource.PlayOneShot(lockClickClip, 0.1f);
 
         if (currentSlot1 == 5 && currentSlot2 == 6 && currentSlot3 == 9 && currentSlot4 == 0)
         {

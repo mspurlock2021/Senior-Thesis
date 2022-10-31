@@ -22,10 +22,9 @@ public class InventoryFunction : MonoBehaviour
     public AudioClip pickupClip;
     public AudioClip placePosterPiece;
     private int piecesPlaced;
-    public GameObject[] correctPosterPiecesCHEAT;
+    public GameObject[] correctPosterPiecesCHEAT = new GameObject[12];
     private void Start()
     {
-        correctPosterPiecesCHEAT = new GameObject[12];
         piecesPlaced = 0;
         pickupSource = GetComponent<AudioSource>();
         for (int i = 0; i < 12; i++)

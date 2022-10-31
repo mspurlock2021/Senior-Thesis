@@ -34,6 +34,8 @@ public class LetterLock : MonoBehaviour
         currentSlot2 = 0;
         currentSlot3 = 0;
         currentSlot4 = 0;
+        currentSlot5 = 0;
+        currentSlot6 = 0;
     }
 
     // Update is called once per frame
@@ -84,7 +86,7 @@ public class LetterLock : MonoBehaviour
 
 
         lockClickSource.pitch = Random.Range(0.8f, 1f);
-        lockClickSource.PlayOneShot(lockClickClip, 0.2f);
+        lockClickSource.PlayOneShot(lockClickClip, 0.1f);
 
         if (currentSlot1 == 1 && currentSlot2 == 2 && currentSlot3 == 3 && currentSlot4 == 4 && currentSlot5 == 5 && currentSlot6 == 1)
         {

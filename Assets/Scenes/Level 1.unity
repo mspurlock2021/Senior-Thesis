@@ -9189,7 +9189,7 @@ MonoBehaviour:
   normalCursor: {fileID: 2800000, guid: 8d85c03ed71816849b43040353c2f921, type: 3}
   cursorMode: 0
   NormHotspot: {x: 0, y: 0}
-  pickupClip: {fileID: 8300000, guid: 86947ce6fc40416488f15876bcf3a12b, type: 3}
+  pickupClip: {fileID: 8300000, guid: 4a943ff8e5566b8439d46c0e545bcf1e, type: 3}
   placePosterPiece: {fileID: 8300000, guid: bd0fff10a0d9f1742bf4e29f4f4325db, type: 3}
   correctPosterPiecesCHEAT:
   - {fileID: 1278619849}

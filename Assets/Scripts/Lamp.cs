@@ -171,7 +171,7 @@ public class Lamp : MonoBehaviour
         }
         else
         {
-            lampSource.PlayOneShot(error, 0.2f);
+            lampSource.PlayOneShot(error, 1f);
             currentSequenceInput = 0;
         }
 

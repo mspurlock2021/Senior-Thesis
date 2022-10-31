@@ -283,7 +283,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 1141231308, guid: 03d19fcf12b5c184a843e23ea82f1292, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8211f9779ac63ed4f839a1d0564fa35e, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1654574581, guid: 23bbfc5fdd086de40a92c87f09c12e41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06a758c43122f3c4abc46f71735f82d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.94471574, b: 0, a: 0.25490198}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7751,7 +7751,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: -41711010, guid: db38736e79a9dae4e89d5503158206db, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 1e1921589f066ff4e8e4c599b94f4057, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -7797,7 +7797,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1727070959, guid: 0fefd8ef7419f2d48a0cfb1d22cebc6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42ce5bdc5defefe4f8d63eead0d73b6b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11242,8 +11242,9 @@ MonoBehaviour:
   normalCursor: {fileID: 0}
   cursorMode: 0
   NormHotspot: {x: 0, y: 0}
-  pickupClip: {fileID: 0}
+  pickupClip: {fileID: 8300000, guid: 4a943ff8e5566b8439d46c0e545bcf1e, type: 3}
   placePosterPiece: {fileID: 0}
+  correctPosterPiecesCHEAT: []
 --- !u!114 &1915859534
 MonoBehaviour:
   m_ObjectHideFlags: 0
