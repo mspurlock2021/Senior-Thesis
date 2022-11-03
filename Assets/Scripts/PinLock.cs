@@ -27,6 +27,7 @@ public class PinLock : MonoBehaviour
     public GameObject key;
     public GameObject lockPanel;
     public GameObject lockSlots;
+    public GameObject refPanel;
 
     private AudioSource lockClickSource;
     public AudioClip lockClickClip;
@@ -115,6 +116,7 @@ public class PinLock : MonoBehaviour
             key.SetActive(true);
             lockPanel.SetActive(false);
             lockSlots.SetActive(false);
+            refPanel.SetActive(true);
 
         }
     }
@@ -153,5 +155,16 @@ public class PinLock : MonoBehaviour
         Slot6[currentSlot6].SetActive(true);
         Slot7[currentSlot7].SetActive(true);
         Slot8[currentSlot8].SetActive(true);
+    }
+
+    public void CHEAT()
+    {
+        GetComponent<WinSound>().PlayWinSound();
+        drawer.SetActive(true);
+        drawerText.SetActive(true);
+        key.SetActive(true);
+        lockPanel.SetActive(false);
+        lockSlots.SetActive(false);
+        refPanel.SetActive(true);
     }
 }

@@ -24,6 +24,9 @@ public class LetterLock : MonoBehaviour
     public GameObject pinSlots;
     public GameObject lockPanel;
 
+    public GameObject letterCHEATBtn;
+    public GameObject pinCHEATBtn;
+
     private AudioSource lockClickSource;
     public AudioClip lockClickClip;
 
@@ -129,5 +132,15 @@ public class LetterLock : MonoBehaviour
         Slot4[currentSlot4].SetActive(true);
         Slot5[currentSlot5].SetActive(true);
         Slot6[currentSlot6].SetActive(true);
+    }
+
+    public void CHEAT()
+    {
+        GetComponent<WinSound>().PlayWinSound();
+        pinBackground.SetActive(true);
+        pinSlots.SetActive(true);
+        lockPanel.SetActive(false);
+        letterCHEATBtn.SetActive(false);
+        pinCHEATBtn.SetActive(true);
     }
 }

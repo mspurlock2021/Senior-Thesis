@@ -22,4 +22,10 @@ public class ButtonPrefab : MonoBehaviour
         gameManager = GameObject.Find("Game Manager");
         gameManager.GetComponent<InventoryFunction>().PlaceObject(this.gameObject);
     }
+
+    public void OpenPanel()
+    {
+        gameManager = GameObject.Find("Game Manager");
+        gameManager.GetComponent<InventoryFunction>().ViewHeldItem(this.gameObject);
+    }
 }

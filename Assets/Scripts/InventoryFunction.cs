@@ -41,6 +41,13 @@ public class InventoryFunction : MonoBehaviour
         usingInventroy = false;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("2"))
+        {
+            SceneManager.LoadScene("Level 2");
+        }
+    }
     public void GrabObject(GameObject ObjToAddToInv)
     {
         for (int i = 0; i < 12; i++)
@@ -142,7 +149,11 @@ public class InventoryFunction : MonoBehaviour
             if (whereToPlace)
             {
                 //currentlyHeld.GetComponent<FindCorrOutline>().correctPosterPiece.SetActive(true);
-                SceneManager.LoadScene("Level 2");
+                if (SceneManager.GetActiveScene().name == "Level 1")
+                    SceneManager.LoadScene("Level 2");
+                else
+                    SceneManager.LoadScene("Main Menu");
+
                 Destroy(thisPiece);
                 filledSlots[inventorySlotInUse] = false;
                 Destroy(HotBar[inventorySlotInUse].transform.GetChild(0).gameObject);
@@ -181,11 +192,11 @@ public class InventoryFunction : MonoBehaviour
         }
     }
 
-    public void ExitHeldItemView(GameObject objToView)
+    public void ExitHeldItemView(GameObject panelToClose)
     {
         {
             usingInventroy = false;
-            objToView.GetComponent<CorrespondingPanel>().CorrectPanel.SetActive(false);
+            panelToClose.SetActive(false);
             this.GetComponent<PanelActive>().viewPanelOn = false;
         }
     }

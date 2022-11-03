@@ -104,4 +104,14 @@ public class Lock : MonoBehaviour
         Slot3[currentSlot3].SetActive(true);
         Slot4[currentSlot4].SetActive(true);
     }
+
+    public void CHEAT()
+    {
+        GetComponent<WinSound>().PlayWinSound();
+        drawer.SetActive(true);
+        drawerText.SetActive(true);
+        key.SetActive(true);
+        lockPanel.SetActive(false);
+    }
 }
+

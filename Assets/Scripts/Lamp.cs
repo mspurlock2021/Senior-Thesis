@@ -184,4 +184,14 @@ public class Lamp : MonoBehaviour
         hint.SetActive(true);
     }
    
+    public void CHEAT()
+    {
+        otherLamp.GetComponent<Lamp>().puzzleDone = true;
+        puzzleDone = true;
+        dotButton.SetActive(false);
+        dashButton.SetActive(false);
+        windowHint.SetActive(true);
+        hint.SetActive(false);
+        lampSource.PlayOneShot(win, 0.2f);
+    }
 }
