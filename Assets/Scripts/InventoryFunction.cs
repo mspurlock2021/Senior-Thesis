@@ -53,7 +53,7 @@ public class InventoryFunction : MonoBehaviour
                 filledSlots[i] = true;
                 Cursor.SetCursor(normalCursor, NormHotspot, cursorMode);
                 pickupSource.pitch = Random.Range(0.8f, 1f);
-                pickupSource.PlayOneShot(pickupClip, 0.2f);
+                pickupSource.PlayOneShot(pickupClip, 0.1f);
                 break;
             }
         }
@@ -168,6 +168,25 @@ public class InventoryFunction : MonoBehaviour
         for (int i = 0; i < 12; i++)
         {
             correctPosterPiecesCHEAT[i].SetActive(true);
+        }
+    }
+
+    public void ViewHeldItem (GameObject objToView)
+    {
+        if (!this.GetComponent<PanelActive>().viewPanelOn && !usingInventroy)
+        {
+            usingInventroy = true;
+            objToView.GetComponent<CorrespondingPanel>().CorrectPanel.SetActive(true);
+            this.GetComponent<PanelActive>().viewPanelOn = true;
+        }
+    }
+
+    public void ExitHeldItemView(GameObject objToView)
+    {
+        {
+            usingInventroy = false;
+            objToView.GetComponent<CorrespondingPanel>().CorrectPanel.SetActive(false);
+            this.GetComponent<PanelActive>().viewPanelOn = false;
         }
     }
 }
