@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LetterLock : MonoBehaviour
+public class PinLock : MonoBehaviour
 {
     public GameObject[] Slot1;
     public GameObject[] Slot2;
@@ -10,6 +10,8 @@ public class LetterLock : MonoBehaviour
     public GameObject[] Slot4;
     public GameObject[] Slot5;
     public GameObject[] Slot6;
+    public GameObject[] Slot7;
+    public GameObject[] Slot8;
 
     private int currentSlot1;
     private int currentSlot2;
@@ -17,12 +19,14 @@ public class LetterLock : MonoBehaviour
     private int currentSlot4;
     private int currentSlot5;
     private int currentSlot6;
+    private int currentSlot7;
+    private int currentSlot8;
 
-    //public GameObject drawer;
-    //public GameObject drawerText;
-    public GameObject pinBackground;
-    public GameObject pinSlots;
+    public GameObject drawer;
+    public GameObject drawerText;
+    public GameObject key;
     public GameObject lockPanel;
+    public GameObject lockSlots;
 
     private AudioSource lockClickSource;
     public AudioClip lockClickClip;
@@ -37,6 +41,8 @@ public class LetterLock : MonoBehaviour
         currentSlot4 = 0;
         currentSlot5 = 0;
         currentSlot6 = 0;
+        currentSlot7 = 0;
+        currentSlot8 = 0;
     }
 
     // Update is called once per frame
@@ -80,6 +86,18 @@ public class LetterLock : MonoBehaviour
                 currentSlot6 = CheckSlotNum(currentSlot6);
                 Slot6[currentSlot6].SetActive(true);
                 break;
+            case 7:
+                Slot7[currentSlot7].SetActive(false);
+                currentSlot7++;
+                currentSlot7 = CheckSlotNum(currentSlot7);
+                Slot7[currentSlot7].SetActive(true);
+                break;
+            case 8:
+                Slot8[currentSlot8].SetActive(false);
+                currentSlot8++;
+                currentSlot8 = CheckSlotNum(currentSlot8);
+                Slot8[currentSlot8].SetActive(true);
+                break;
             default:
                 Debug.Log("incorrect");
                 break;
@@ -89,21 +107,21 @@ public class LetterLock : MonoBehaviour
         lockClickSource.pitch = Random.Range(0.8f, 1f);
         lockClickSource.PlayOneShot(lockClickClip, 0.1f);
 
-        if (currentSlot1 == 1 && currentSlot2 == 2 && currentSlot3 == 3 && currentSlot4 == 4 && currentSlot5 == 5 && currentSlot6 == 1)
+        if (currentSlot1 == 0 && currentSlot2 == 1 && currentSlot3 == 2 && currentSlot4 == 3 && currentSlot5 == 0 && currentSlot6 == 3 && currentSlot7 == 2 && currentSlot8 == 2)
         {
             GetComponent<WinSound>().PlayWinSound();
-            //drawer.SetActive(true);
-            //drawerText.SetActive(true);
-            pinBackground.SetActive(true);
-            pinSlots.SetActive(true);
+            drawer.SetActive(true);
+            drawerText.SetActive(true);
+            key.SetActive(true);
             lockPanel.SetActive(false);
+            lockSlots.SetActive(false);
 
         }
     }
 
     private int CheckSlotNum(int numToCheck)
     {
-        if (numToCheck == 6)
+        if (numToCheck == 4)
             numToCheck = 0;
 
         return numToCheck;
@@ -117,17 +135,23 @@ public class LetterLock : MonoBehaviour
         Slot4[currentSlot4].SetActive(false);
         Slot5[currentSlot5].SetActive(false);
         Slot6[currentSlot6].SetActive(false);
+        Slot7[currentSlot7].SetActive(false);
+        Slot8[currentSlot8].SetActive(false);
         currentSlot1 = 0;
         currentSlot2 = 0;
         currentSlot3 = 0;
         currentSlot4 = 0;
         currentSlot5 = 0;
         currentSlot6 = 0;
+        currentSlot7 = 0;
+        currentSlot8 = 0;
         Slot1[currentSlot1].SetActive(true);
         Slot2[currentSlot2].SetActive(true);
         Slot3[currentSlot3].SetActive(true);
         Slot4[currentSlot4].SetActive(true);
         Slot5[currentSlot5].SetActive(true);
         Slot6[currentSlot6].SetActive(true);
+        Slot7[currentSlot7].SetActive(true);
+        Slot8[currentSlot8].SetActive(true);
     }
 }
