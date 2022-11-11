@@ -18,7 +18,7 @@ public class MusicContinuous : MonoBehaviour
         MusicVolume = 0.2f;
         SEVolume = 0.2f;
         MusicMixer.SetFloat("MusicVol", Mathf.Log10(MusicVolume) * 20);
-        SEMixer.SetFloat("SEVolume", Mathf.Log10(SEVolume) * 20);
+        SEMixer.SetFloat("SEVol", Mathf.Log10(SEVolume) * 20);
         
     }
     private void Awake()
