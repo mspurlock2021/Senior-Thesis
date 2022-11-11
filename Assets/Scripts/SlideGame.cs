@@ -28,6 +28,9 @@ public class SlideGame : MonoBehaviour
     public AudioClip slideClip;
     public AudioClip win;
 
+    private Coroutine coroutine;
+    private bool puzzleCompleted;
+
     private void Start()
     {
         OriginalSpot1 = Buttons[0].GetComponent<RectTransform>().anchoredPosition;
@@ -41,27 +44,31 @@ public class SlideGame : MonoBehaviour
         OriginalSpotEmpty = Buttons[8].GetComponent<RectTransform>().anchoredPosition;
 
         slideSource = GetComponent<AudioSource>();
+        puzzleCompleted = false;
     }
 
     public void slide(RectTransform clickedTile)
     {
-        if (Mathf.Sqrt(Mathf.Pow(clickedTile.anchoredPosition.x - emptySpace.GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(clickedTile.anchoredPosition.y - emptySpace.GetComponent<RectTransform>().anchoredPosition.y, 2)) < DISTANCE_BETWEEN_TILES)
+        if (!puzzleCompleted)
         {
-            slideSource.pitch = Random.Range(0.8f, 1f);
-            slideSource.PlayOneShot(slideClip, 0.2f);
-            //Debug.Log("it worked");
-            //Debug.Log(Mathf.Sqrt(Mathf.Pow(clickedTile.anchoredPosition.x - emptySpace.GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(clickedTile.anchoredPosition.y - emptySpace.GetComponent<RectTransform>().anchoredPosition.y, 2)));
-            tempAnchoredPosition = emptySpace.GetComponent<RectTransform>().anchoredPosition;
-            emptySpace.GetComponent<RectTransform>().anchoredPosition = clickedTile.anchoredPosition;
-            clickedTile.anchoredPosition = tempAnchoredPosition;
-            CheckWin();
+            if (Mathf.Sqrt(Mathf.Pow(clickedTile.anchoredPosition.x - emptySpace.GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(clickedTile.anchoredPosition.y - emptySpace.GetComponent<RectTransform>().anchoredPosition.y, 2)) < DISTANCE_BETWEEN_TILES)
+            {
+                slideSource.pitch = Random.Range(0.8f, 1f);
+                slideSource.PlayOneShot(slideClip, 1f);
+                //Debug.Log("it worked");
+                //Debug.Log(Mathf.Sqrt(Mathf.Pow(clickedTile.anchoredPosition.x - emptySpace.GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(clickedTile.anchoredPosition.y - emptySpace.GetComponent<RectTransform>().anchoredPosition.y, 2)));
+                tempAnchoredPosition = emptySpace.GetComponent<RectTransform>().anchoredPosition;
+                emptySpace.GetComponent<RectTransform>().anchoredPosition = clickedTile.anchoredPosition;
+                clickedTile.anchoredPosition = tempAnchoredPosition;
+                CheckWin();
 
 
-        }
-        else
-        {
-            //Debug.Log("OOF");
-            //Debug.Log(Mathf.Sqrt(Mathf.Pow(clickedTile.anchoredPosition.x - emptySpace.GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(clickedTile.anchoredPosition.y - emptySpace.GetComponent<RectTransform>().anchoredPosition.y, 2)));
+            }
+            else
+            {
+                //Debug.Log("OOF");
+                //Debug.Log(Mathf.Sqrt(Mathf.Pow(clickedTile.anchoredPosition.x - emptySpace.GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(clickedTile.anchoredPosition.y - emptySpace.GetComponent<RectTransform>().anchoredPosition.y, 2)));
+            }
         }
     }
 
@@ -77,12 +84,9 @@ public class SlideGame : MonoBehaviour
                 i++;
                 if (i == 9)
                 {
+                    puzzleCompleted = true;
                     gameManager.GetComponent<WinSound>().PlayWinSound();
-                    slideGame.SetActive(false);
-                    foreach (GameObject k in posterPieces)
-                    {
-                        k.SetActive(true);
-                    }
+                    coroutine = StartCoroutine(WaitTime());
                 }
                
 
@@ -97,12 +101,9 @@ public class SlideGame : MonoBehaviour
 
     public void CHEAT()
     {
+        puzzleCompleted = true;
         gameManager.GetComponent<WinSound>().PlayWinSound();
-        slideGame.SetActive(false);
-        foreach (GameObject k in posterPieces)
-        {
-            k.SetActive(true);
-        }
+        coroutine = StartCoroutine(WaitTime());
     }
 
     public void ResetSlideGame()
@@ -116,5 +117,15 @@ public class SlideGame : MonoBehaviour
         Buttons[6].GetComponent<RectTransform>().anchoredPosition = OriginalSpot7;
         Buttons[7].GetComponent<RectTransform>().anchoredPosition = OriginalSpot8;
         Buttons[8].GetComponent<RectTransform>().anchoredPosition = OriginalSpotEmpty;
+    }
+
+    private IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        slideGame.SetActive(false);
+        foreach (GameObject k in posterPieces)
+        {
+            k.SetActive(true);
+        }
     }
 }

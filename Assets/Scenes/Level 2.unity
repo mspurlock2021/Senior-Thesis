@@ -1728,13 +1728,14 @@ GameObject:
   - component: {fileID: 301338170}
   - component: {fileID: 301338169}
   - component: {fileID: 301338168}
+  - component: {fileID: 301338171}
   m_Layer: 5
   m_Name: Fake Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &301338168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1793,6 +1794,26 @@ RectTransform:
   m_AnchoredPosition: {x: 1735, y: -38.146618}
   m_SizeDelta: {x: 486.6038, y: 389.9526}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &301338171
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301338167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9312573af0a2caa47ab9885e9ff76f83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &306116013 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6971033820538571435, guid: 07bc526af52d40340a5ede77b32bea1f, type: 3}
@@ -3165,6 +3186,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1530961663}
         m_TargetAssemblyTypeName: ObjectInteraction, Assembly-CSharp
         m_MethodName: turnOnPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1530961667}
+        m_TargetAssemblyTypeName: Lamp, Assembly-CSharp
+        m_MethodName: TurnOffOtherLamp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9565,6 +9598,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1530961667}
+        m_TargetAssemblyTypeName: Lamp, Assembly-CSharp
+        m_MethodName: TurnOnOtherLamp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1056847018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13406,7 +13451,7 @@ MonoBehaviour:
   paper: {fileID: 851586980}
   hint: {fileID: 2692211}
   win: {fileID: 8300000, guid: 9b2e585d89a8b4a4584814355b4f4354, type: 3}
-  otherLamp: {fileID: 1915859530}
+  otherLamp: {fileID: 301338167}
 --- !u!82 &1530961668
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13416,7 +13461,7 @@ AudioSource:
   m_GameObject: {fileID: 1530961661}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3163ad64ab63de545b7c3341c2b202d1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -13867,13 +13912,14 @@ GameObject:
   - component: {fileID: 1591553805}
   - component: {fileID: 1591553807}
   - component: {fileID: 1591553806}
+  - component: {fileID: 1591553808}
   m_Layer: 5
   m_Name: Fake Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1591553805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13932,6 +13978,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591553804}
   m_CullTransparentMesh: 1
+--- !u!95 &1591553808
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591553804}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9312573af0a2caa47ab9885e9ff76f83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!224 &1594532736 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6210651418174142851, guid: aeb5f70eaf7870843a95ecda0058410f, type: 3}
@@ -17924,6 +17990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 935067349}
   pauseButton: {fileID: 2127302084}
+  settingsPanel: {fileID: 0}
 --- !u!114 &1915859533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18028,7 +18095,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915859530}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fee494166840bce4f9a52a8a73569147, type: 3}
   m_Name: 
@@ -18111,7 +18178,7 @@ AudioSource:
   m_GameObject: {fileID: 1915859530}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3163ad64ab63de545b7c3341c2b202d1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1

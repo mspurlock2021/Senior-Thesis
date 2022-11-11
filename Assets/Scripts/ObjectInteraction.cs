@@ -33,7 +33,7 @@ public class ObjectInteraction : MonoBehaviour
             inventory.transform.SetAsLastSibling();
             gameManager.GetComponent<PanelActive>().panelOn = true;
             openPanelSource.pitch = Random.Range(0.8f, 1f);
-            openPanelSource.PlayOneShot(openPanel, 0.2f);
+            openPanelSource.PlayOneShot(openPanel, 1f);
         }
         //Debug.Log(panelOpen);
     }

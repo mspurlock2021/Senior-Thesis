@@ -23,6 +23,8 @@ public class InventoryFunction : MonoBehaviour
     public AudioClip placePosterPiece;
     private int piecesPlaced;
     public GameObject[] correctPosterPiecesCHEAT = new GameObject[12];
+    private Coroutine coroutine;
+
     private void Start()
     {
         piecesPlaced = 0;
@@ -60,7 +62,7 @@ public class InventoryFunction : MonoBehaviour
                 filledSlots[i] = true;
                 Cursor.SetCursor(normalCursor, NormHotspot, cursorMode);
                 pickupSource.pitch = Random.Range(0.8f, 1f);
-                pickupSource.PlayOneShot(pickupClip, 0.1f);
+                pickupSource.PlayOneShot(pickupClip, 1f);
                 break;
             }
         }
@@ -119,7 +121,7 @@ public class InventoryFunction : MonoBehaviour
                 Destroy(HotBar[inventorySlotInUse].transform.GetChild(0).gameObject);
                 usingInventroy = false;
                 pickupSource.pitch = Random.Range(0.8f, 1f);
-                pickupSource.PlayOneShot(placePosterPiece, 0.2f);
+                pickupSource.PlayOneShot(placePosterPiece, 1f);
                 piecesPlaced++;
                 if (piecesPlaced == 12)
                 {
@@ -149,15 +151,12 @@ public class InventoryFunction : MonoBehaviour
             if (whereToPlace)
             {
                 //currentlyHeld.GetComponent<FindCorrOutline>().correctPosterPiece.SetActive(true);
-                if (SceneManager.GetActiveScene().name == "Level 1")
-                    SceneManager.LoadScene("Level 2");
-                else
-                    SceneManager.LoadScene("Main Menu");
-
                 Destroy(thisPiece);
                 filledSlots[inventorySlotInUse] = false;
                 Destroy(HotBar[inventorySlotInUse].transform.GetChild(0).gameObject);
                 usingInventroy = false;
+                this.gameObject.GetComponent<WinSound>().PlayWinSound();
+                coroutine = StartCoroutine(WaitTime());
             }
             else
             {
@@ -199,5 +198,15 @@ public class InventoryFunction : MonoBehaviour
             panelToClose.SetActive(false);
             this.GetComponent<PanelActive>().viewPanelOn = false;
         }
+    }
+
+    private IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (SceneManager.GetActiveScene().name == "Level 1")
+            SceneManager.LoadScene("Level 2");
+        else
+            SceneManager.LoadScene("Main Menu");
+
     }
 }

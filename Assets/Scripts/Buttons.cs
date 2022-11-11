@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 public class Buttons : MonoBehaviour
 {
     public string scene;
+    private AudioSource testSource;
+    public AudioClip testClip;
+
+    private void Start()
+    {
+        testSource = this.GetComponent<AudioSource>();
+    }
 
     public void LoadLevel()
     {
@@ -15,5 +22,10 @@ public class Buttons : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void TestSound()
+    {
+        testSource.PlayOneShot(testClip, 1.0f);
     }
 }

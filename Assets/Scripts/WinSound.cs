@@ -15,7 +15,7 @@ public class WinSound : MonoBehaviour
 
     public void PlayWinSound()
     {
-        audioSource.PlayOneShot(win, 0.2f);
+        audioSource.PlayOneShot(win, 1f);
     }
 
 }

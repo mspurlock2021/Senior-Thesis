@@ -5,13 +5,11 @@ using UnityEngine;
 public class Lamp : MonoBehaviour
 {
     public GameObject theLamp;
-    private bool lampSequenceOn;
     private int currentSequenceInput;
     private string[] correctInput;
     private string[] userInput;
     public GameObject dashButton;
     public GameObject dotButton;
-    private bool puzzleDone;
     public GameObject windowHint;
     private AudioSource lampSource;
     public AudioClip error;
@@ -19,11 +17,12 @@ public class Lamp : MonoBehaviour
     public GameObject hint;
     public AudioClip win;
     public GameObject otherLamp;
+    private bool puzzleComplete;
 
-    private IEnumerator coroutine; 
     // Start is called before the first frame update
     void Start()
     {
+        puzzleComplete = false;
         lampSource = GetComponent<AudioSource>();
         correctInput = new string[5];
         userInput = new string[5];
@@ -34,110 +33,19 @@ public class Lamp : MonoBehaviour
         correctInput[3] = "dash";
         correctInput[4] = "dot";
 
-        puzzleDone = false;
-
-        currentSequenceInput = 0;
-        lampSequenceOn = true;
-        LampSequenceOn();
-    }
-
-    private void OnEnable()
-    {
-        lampSequenceOn = true;
-        LampSequenceOn();
-    }
-
-    private void OnDisable()
-    {
-        lampSequenceOn = false;
-        StopCoroutine(coroutine);
         currentSequenceInput = 0;
     }
 
-    private void LampSequenceOn()
+    public void TurnOffOtherLamp ()
     {
-        if (lampSequenceOn)
-        {
-            //Debug.Log("on");
-            coroutine = ActivateLamp();
-            StartCoroutine(coroutine);
-        }
+        if(!puzzleComplete)
+        otherLamp.SetActive(false);
     }
 
-    private IEnumerator ActivateLamp()
+    public void TurnOnOtherLamp ()
     {
-        while (lampSequenceOn && !puzzleDone)
-        {
-            //dot
-            theLamp.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
-            if (!lampSequenceOn)
-                break;
-            theLamp.SetActive(false);
-            yield return new WaitForSeconds(0.5f);
-            if (!lampSequenceOn)
-                break;
-
-            //dot
-            theLamp.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
-            if (!lampSequenceOn)
-                break;
-            theLamp.SetActive(false);
-            yield return new WaitForSeconds(0.5f);
-            if (!lampSequenceOn)
-                break;
-
-            //dash
-            theLamp.SetActive(true);
-            yield return new WaitForSeconds(1f);
-            if (!lampSequenceOn)
-                break;
-            theLamp.SetActive(false);
-            yield return new WaitForSeconds(0.5f);
-            if (!lampSequenceOn)
-                break;
-
-            //dash
-            theLamp.SetActive(true);
-            yield return new WaitForSeconds(1f);
-            if (!lampSequenceOn)
-                break;
-            theLamp.SetActive(false);
-            yield return new WaitForSeconds(0.5f);
-            if (!lampSequenceOn)
-                break;
-
-            //dot
-            theLamp.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
-            if (!lampSequenceOn)
-                break;
-            theLamp.SetActive(false);
-            yield return new WaitForSeconds(0.5f);
-            if (!lampSequenceOn)
-                break;
-
-            //wait to start again
-            yield return new WaitForSeconds(3f);
-            if (!lampSequenceOn)
-                break;
-
-        }
-
-    }
-
-    public void turnLampOff()
-    {
-        lampSequenceOn = false;
-        StopCoroutine(coroutine);
-    }
-
-    public void turnLampOn()
-    {
-        lampSequenceOn = true;
-        coroutine = ActivateLamp();
-        StartCoroutine(coroutine);
+        if(!puzzleComplete)
+        otherLamp.SetActive(true);
     }
 
     public void DashPressed()
@@ -159,13 +67,14 @@ public class Lamp : MonoBehaviour
             currentSequenceInput++;
             if(currentSequenceInput == 5)
             {
-                otherLamp.GetComponent<Lamp>().puzzleDone = true;
-                puzzleDone = true;
+                puzzleComplete = true;
+                otherLamp.SetActive(false);
+                theLamp.SetActive(false);
                 dotButton.SetActive(false);
                 dashButton.SetActive(false);
                 windowHint.SetActive(true);
                 hint.SetActive(false);
-                lampSource.PlayOneShot(win, 0.2f);
+                lampSource.PlayOneShot(win, 1f);
 
             }
         }
@@ -186,12 +95,13 @@ public class Lamp : MonoBehaviour
    
     public void CHEAT()
     {
-        otherLamp.GetComponent<Lamp>().puzzleDone = true;
-        puzzleDone = true;
+        puzzleComplete = true;
+        otherLamp.SetActive(false);
+        theLamp.SetActive(false);
         dotButton.SetActive(false);
         dashButton.SetActive(false);
         windowHint.SetActive(true);
         hint.SetActive(false);
-        lampSource.PlayOneShot(win, 0.2f);
+        lampSource.PlayOneShot(win, 1f);
     }
 }

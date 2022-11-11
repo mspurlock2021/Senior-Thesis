@@ -7,6 +7,7 @@ public class PauseGame : MonoBehaviour
 {
     public GameObject pausePanel;
     public GameObject pauseButton;
+    public GameObject settingsPanel;
     public void PauseButtonPressed()
     {
         this.GetComponent<PanelActive>().panelOn = true;
@@ -35,5 +36,17 @@ public class PauseGame : MonoBehaviour
     public void MainMenuPressed()
     {
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void SettingsMenuPressed()
+    {
+        pausePanel.SetActive(false);
+        settingsPanel.SetActive(true);
+    }
+
+    public void GoBackSettings()
+    {
+        pausePanel.SetActive(true);
+        settingsPanel.SetActive(false);
     }
 }

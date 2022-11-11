@@ -30,6 +30,9 @@ public class LetterLock : MonoBehaviour
     private AudioSource lockClickSource;
     public AudioClip lockClickClip;
 
+    private Coroutine coroutine;
+    private bool puzzleComplete;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,67 +43,67 @@ public class LetterLock : MonoBehaviour
         currentSlot4 = 0;
         currentSlot5 = 0;
         currentSlot6 = 0;
+        puzzleComplete = false;
     }
 
     // Update is called once per frame
     public void LockNumClicked(int LockSlot)
     {
-        switch (LockSlot)
+        if (!puzzleComplete)
         {
-            case 1:
-                Slot1[currentSlot1].SetActive(false);
-                currentSlot1++;
-                currentSlot1 = CheckSlotNum(currentSlot1);
-                Slot1[currentSlot1].SetActive(true);
-                break;
-            case 2:
-                Slot2[currentSlot2].SetActive(false);
-                currentSlot2++;
-                currentSlot2 = CheckSlotNum(currentSlot2);
-                Slot2[currentSlot2].SetActive(true);
-                break;
-            case 3:
-                Slot3[currentSlot3].SetActive(false);
-                currentSlot3++;
-                currentSlot3 = CheckSlotNum(currentSlot3);
-                Slot3[currentSlot3].SetActive(true);
-                break;
-            case 4:
-                Slot4[currentSlot4].SetActive(false);
-                currentSlot4++;
-                currentSlot4 = CheckSlotNum(currentSlot4);
-                Slot4[currentSlot4].SetActive(true);
-                break;
-            case 5:
-                Slot5[currentSlot5].SetActive(false);
-                currentSlot5++;
-                currentSlot5 = CheckSlotNum(currentSlot5);
-                Slot5[currentSlot5].SetActive(true);
-                break;
-            case 6:
-                Slot6[currentSlot6].SetActive(false);
-                currentSlot6++;
-                currentSlot6 = CheckSlotNum(currentSlot6);
-                Slot6[currentSlot6].SetActive(true);
-                break;
-            default:
-                Debug.Log("incorrect");
-                break;
-        }
+            switch (LockSlot)
+            {
+                case 1:
+                    Slot1[currentSlot1].SetActive(false);
+                    currentSlot1++;
+                    currentSlot1 = CheckSlotNum(currentSlot1);
+                    Slot1[currentSlot1].SetActive(true);
+                    break;
+                case 2:
+                    Slot2[currentSlot2].SetActive(false);
+                    currentSlot2++;
+                    currentSlot2 = CheckSlotNum(currentSlot2);
+                    Slot2[currentSlot2].SetActive(true);
+                    break;
+                case 3:
+                    Slot3[currentSlot3].SetActive(false);
+                    currentSlot3++;
+                    currentSlot3 = CheckSlotNum(currentSlot3);
+                    Slot3[currentSlot3].SetActive(true);
+                    break;
+                case 4:
+                    Slot4[currentSlot4].SetActive(false);
+                    currentSlot4++;
+                    currentSlot4 = CheckSlotNum(currentSlot4);
+                    Slot4[currentSlot4].SetActive(true);
+                    break;
+                case 5:
+                    Slot5[currentSlot5].SetActive(false);
+                    currentSlot5++;
+                    currentSlot5 = CheckSlotNum(currentSlot5);
+                    Slot5[currentSlot5].SetActive(true);
+                    break;
+                case 6:
+                    Slot6[currentSlot6].SetActive(false);
+                    currentSlot6++;
+                    currentSlot6 = CheckSlotNum(currentSlot6);
+                    Slot6[currentSlot6].SetActive(true);
+                    break;
+                default:
+                    Debug.Log("incorrect");
+                    break;
+            }
 
 
-        lockClickSource.pitch = Random.Range(0.8f, 1f);
-        lockClickSource.PlayOneShot(lockClickClip, 0.1f);
+            lockClickSource.pitch = Random.Range(0.8f, 1f);
+            lockClickSource.PlayOneShot(lockClickClip, 1f);
 
-        if (currentSlot1 == 1 && currentSlot2 == 2 && currentSlot3 == 3 && currentSlot4 == 4 && currentSlot5 == 5 && currentSlot6 == 1)
-        {
-            GetComponent<WinSound>().PlayWinSound();
-            //drawer.SetActive(true);
-            //drawerText.SetActive(true);
-            pinBackground.SetActive(true);
-            pinSlots.SetActive(true);
-            lockPanel.SetActive(false);
-
+            if (currentSlot1 == 1 && currentSlot2 == 2 && currentSlot3 == 3 && currentSlot4 == 4 && currentSlot5 == 5 && currentSlot6 == 1)
+            {
+                puzzleComplete = true;
+                GetComponent<WinSound>().PlayWinSound();
+                coroutine = StartCoroutine(WaitTime());
+            }
         }
     }
 
@@ -136,7 +139,14 @@ public class LetterLock : MonoBehaviour
 
     public void CHEAT()
     {
+        puzzleComplete = true;
         GetComponent<WinSound>().PlayWinSound();
+        coroutine = StartCoroutine(WaitTime());
+    }
+
+    private IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(1.5f);
         pinBackground.SetActive(true);
         pinSlots.SetActive(true);
         lockPanel.SetActive(false);
