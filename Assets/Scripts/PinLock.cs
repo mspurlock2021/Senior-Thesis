@@ -35,6 +35,9 @@ public class PinLock : MonoBehaviour
     private Coroutine coroutine;
     private bool puzzleComplete;
 
+    public GameObject particlePos;
+    public ParticleSystem winPar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -116,6 +119,7 @@ public class PinLock : MonoBehaviour
 
             if (currentSlot1 == 0 && currentSlot2 == 1 && currentSlot3 == 2 && currentSlot4 == 3 && currentSlot5 == 0 && currentSlot6 == 3 && currentSlot7 == 2 && currentSlot8 == 2)
             {
+                Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
                 puzzleComplete = true;
                 GetComponent<WinSound>().PlayWinSound();
                 coroutine = StartCoroutine(WaitTime());
@@ -161,6 +165,7 @@ public class PinLock : MonoBehaviour
 
     public void CHEAT()
     {
+        Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
         puzzleComplete = true;
         GetComponent<WinSound>().PlayWinSound();
         coroutine = StartCoroutine(WaitTime());

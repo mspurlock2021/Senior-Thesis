@@ -31,6 +31,9 @@ public class SlideGame : MonoBehaviour
     private Coroutine coroutine;
     private bool puzzleCompleted;
 
+    public GameObject winPar;
+    public GameObject posOfParticles;
+
     private void Start()
     {
         OriginalSpot1 = Buttons[0].GetComponent<RectTransform>().anchoredPosition;
@@ -86,6 +89,7 @@ public class SlideGame : MonoBehaviour
                 {
                     puzzleCompleted = true;
                     gameManager.GetComponent<WinSound>().PlayWinSound();
+                    Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity);
                     coroutine = StartCoroutine(WaitTime());
                 }
                
@@ -103,6 +107,7 @@ public class SlideGame : MonoBehaviour
     {
         puzzleCompleted = true;
         gameManager.GetComponent<WinSound>().PlayWinSound();
+        Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity);
         coroutine = StartCoroutine(WaitTime());
     }
 
@@ -127,5 +132,6 @@ public class SlideGame : MonoBehaviour
         {
             k.SetActive(true);
         }
+        //Destroy(winPar);
     }
 }

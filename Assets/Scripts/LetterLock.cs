@@ -33,6 +33,9 @@ public class LetterLock : MonoBehaviour
     private Coroutine coroutine;
     private bool puzzleComplete;
 
+    public ParticleSystem winPar;
+    public GameObject particlePos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,6 +103,7 @@ public class LetterLock : MonoBehaviour
 
             if (currentSlot1 == 1 && currentSlot2 == 2 && currentSlot3 == 3 && currentSlot4 == 4 && currentSlot5 == 5 && currentSlot6 == 1)
             {
+                Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
                 puzzleComplete = true;
                 GetComponent<WinSound>().PlayWinSound();
                 coroutine = StartCoroutine(WaitTime());
@@ -139,6 +143,7 @@ public class LetterLock : MonoBehaviour
 
     public void CHEAT()
     {
+        Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
         puzzleComplete = true;
         GetComponent<WinSound>().PlayWinSound();
         coroutine = StartCoroutine(WaitTime());

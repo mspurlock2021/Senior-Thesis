@@ -19,19 +19,33 @@ public class Lamp : MonoBehaviour
     public GameObject otherLamp;
     private bool puzzleComplete;
 
+    public GameObject winPar;
+    public GameObject particlePos;
+
     // Start is called before the first frame update
     void Start()
     {
         puzzleComplete = false;
         lampSource = GetComponent<AudioSource>();
-        correctInput = new string[5];
-        userInput = new string[5];
+        correctInput = new string[16];
+        userInput = new string[16];
 
         correctInput[0] = "dot";
-        correctInput[1] = "dot";
+        correctInput[1] = "dash";
         correctInput[2] = "dash";
-        correctInput[3] = "dash";
+        correctInput[3] = "dot";
         correctInput[4] = "dot";
+        correctInput[5] = "dash";
+        correctInput[6] = "dot";
+        correctInput[7] = "dash";
+        correctInput[8] = "dot";
+        correctInput[9] = "dot";
+        correctInput[10] = "dash";
+        correctInput[11] = "dash";
+        correctInput[12] = "dash";
+        correctInput[13] = "dot";
+        correctInput[14] = "dash";
+        correctInput[15] = "dash";
 
         currentSequenceInput = 0;
     }
@@ -65,8 +79,9 @@ public class Lamp : MonoBehaviour
         if (userInput[currentSequenceInput] == correctInput[currentSequenceInput])
         {
             currentSequenceInput++;
-            if(currentSequenceInput == 5)
+            if(currentSequenceInput == 16)
             {
+                Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
                 puzzleComplete = true;
                 otherLamp.SetActive(false);
                 theLamp.SetActive(false);
@@ -95,6 +110,7 @@ public class Lamp : MonoBehaviour
    
     public void CHEAT()
     {
+        Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
         puzzleComplete = true;
         otherLamp.SetActive(false);
         theLamp.SetActive(false);

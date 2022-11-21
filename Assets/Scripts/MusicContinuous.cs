@@ -15,10 +15,17 @@ public class MusicContinuous : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.GetFloat("MusicVolume") < 1.00001f && PlayerPrefs.GetFloat("MusicVolume") > 0f)
+            MusicVolume = PlayerPrefs.GetFloat("MusicVolume");
+        else
         MusicVolume = 0.2f;
-        SEVolume = 0.2f;
+
+        if (PlayerPrefs.GetFloat("SEVolume") < 1.00001f && PlayerPrefs.GetFloat("SEVolume") > 0f)
+            SEVolume = PlayerPrefs.GetFloat("SEVolume");
+        else
+            SEVolume = 0.2f;
         MusicMixer.SetFloat("MusicVol", Mathf.Log10(MusicVolume) * 20);
-        SEMixer.SetFloat("SEVolume", Mathf.Log10(SEVolume) * 20);
+        SEMixer.SetFloat("SEVol", Mathf.Log10(SEVolume) * 20);
         
     }
     private void Awake()

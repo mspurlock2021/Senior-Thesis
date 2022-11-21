@@ -32,9 +32,15 @@ public class VolumeSlider : MonoBehaviour
     public void SliderForVolume(float volume)
     {
         if (exposedParamString == "MusicVol")
-           GameObject.Find("Music").GetComponent<MusicContinuous>().MusicVolume = volume;
+        {
+            GameObject.Find("Music").GetComponent<MusicContinuous>().MusicVolume = volume;
+            PlayerPrefs.SetFloat("MusicVolume", volume);
+        }
         else if (exposedParamString == "SEVol")
-           GameObject.Find("Music").GetComponent<MusicContinuous>().SEVolume = volume;
+        {
+            GameObject.Find("Music").GetComponent<MusicContinuous>().SEVolume = volume;
+            PlayerPrefs.SetFloat("SEVolume", volume);
+        }
         volumeTextUI.text = (volume * 100).ToString("0");
         mixer.SetFloat(exposedParamString, Mathf.Log10(volume) * 20);
     }

@@ -24,6 +24,9 @@ public class InventoryFunction : MonoBehaviour
     private int piecesPlaced;
     public GameObject[] correctPosterPiecesCHEAT = new GameObject[12];
     private Coroutine coroutine;
+    
+    public ParticleSystem winPar;
+    public GameObject posterParPos;
 
     private void Start()
     {
@@ -126,6 +129,7 @@ public class InventoryFunction : MonoBehaviour
                 if (piecesPlaced == 12)
                 {
                     GetComponent<WinSound>().PlayWinSound();
+                    Instantiate(winPar, posterParPos.transform.position, Quaternion.identity);
                 }
             }
             else
@@ -177,6 +181,7 @@ public class InventoryFunction : MonoBehaviour
     {
         for (int i = 0; i < 12; i++)
         {
+            Instantiate(winPar, posterParPos.transform.position, Quaternion.identity);
             correctPosterPiecesCHEAT[i].SetActive(true);
         }
     }
