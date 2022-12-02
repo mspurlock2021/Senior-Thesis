@@ -17,6 +17,7 @@ public class CameraScroll : MonoBehaviour
     private const float SCREEN_MINIMUM = 0.0f;
     private float currentScrollSpeed;
     public bool canScroll;
+    private GameObject musicObject;
 
 
     // Start is called before the first frame update
@@ -27,33 +28,42 @@ public class CameraScroll : MonoBehaviour
         maxLowerBound = Screen.width - Screen.width * margin;
         maxUpperBound = Screen.width;
         canScroll = true;
+        musicObject = GameObject.Find("Music");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //    SceneManager.LoadScene("Main Menu");
 
         if (Input.mousePosition.x > maxLowerBound && cam.anchoredPosition.x > maximum && canScroll)
         {
             currentScrollSpeed = scrollSpeed * (Mathf.InverseLerp(maxLowerBound, maxUpperBound, Input.mousePosition.x));
             cam.anchoredPosition = new Vector2(cam.anchoredPosition.x - currentScrollSpeed * Time.deltaTime, cam.anchoredPosition.y);
-            //cam.transform.position = new Vector3(cam.transform.position.x + scrollSpeed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
+
+            if (SceneManager.GetActiveScene().name == "Level 1")
+                musicObject.GetComponent<MusicContinuous>().RadioMusic(cam.anchoredPosition.x);
         }
         else if (cam.anchoredPosition.x < maximum)
+        {
             cam.anchoredPosition = new Vector2(maximum, 0);
+            if (SceneManager.GetActiveScene().name == "Level 1")
+                musicObject.GetComponent<MusicContinuous>().RadioMusic(cam.anchoredPosition.x);
+        }
 
         if (Input.mousePosition.x < minUpperBound && cam.anchoredPosition.x < minimum && canScroll)
         {
             currentScrollSpeed = scrollSpeed * (Mathf.InverseLerp(minUpperBound, minLowerBound, Input.mousePosition.x));
             cam.anchoredPosition = new Vector2(cam.anchoredPosition.x + currentScrollSpeed * Time.deltaTime, cam.anchoredPosition.y);
-            //cam.transform.position = new Vector3(cam.transform.position.x + scrollSpeed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
+
+            if (SceneManager.GetActiveScene().name == "Level 1")
+                musicObject.GetComponent<MusicContinuous>().RadioMusic(cam.anchoredPosition.x);
         }
         else if (cam.anchoredPosition.x > minimum)
+        {
             cam.anchoredPosition = new Vector2(minimum, 0);
-
-        //Debug.Log(Input.mousePosition.x);
+            if (SceneManager.GetActiveScene().name == "Level 1")
+                musicObject.GetComponent<MusicContinuous>().RadioMusic(cam.anchoredPosition.x);
+        }
 
     }
 }

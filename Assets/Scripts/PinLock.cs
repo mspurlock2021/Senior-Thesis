@@ -36,7 +36,8 @@ public class PinLock : MonoBehaviour
     private bool puzzleComplete;
 
     public GameObject particlePos;
-    public ParticleSystem winPar;
+    public GameObject winPar;
+    private GameObject tempWinEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -119,7 +120,7 @@ public class PinLock : MonoBehaviour
 
             if (currentSlot1 == 0 && currentSlot2 == 1 && currentSlot3 == 2 && currentSlot4 == 3 && currentSlot5 == 0 && currentSlot6 == 3 && currentSlot7 == 2 && currentSlot8 == 2)
             {
-                Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
+                tempWinEffect = Instantiate(winPar, particlePos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
                 puzzleComplete = true;
                 GetComponent<WinSound>().PlayWinSound();
                 coroutine = StartCoroutine(WaitTime());
@@ -165,7 +166,7 @@ public class PinLock : MonoBehaviour
 
     public void CHEAT()
     {
-        Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
+        tempWinEffect = Instantiate(winPar, particlePos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         puzzleComplete = true;
         GetComponent<WinSound>().PlayWinSound();
         coroutine = StartCoroutine(WaitTime());
@@ -180,5 +181,6 @@ public class PinLock : MonoBehaviour
         lockPanel.SetActive(false);
         lockSlots.SetActive(false);
         refPanel.SetActive(true);
+        Destroy(tempWinEffect);
     }
 }

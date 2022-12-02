@@ -19,8 +19,11 @@ public class Lamp : MonoBehaviour
     public GameObject otherLamp;
     private bool puzzleComplete;
 
+    private Coroutine coroutine;
+
     public GameObject winPar;
     public GameObject particlePos;
+    private GameObject tempWinEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +84,7 @@ public class Lamp : MonoBehaviour
             currentSequenceInput++;
             if(currentSequenceInput == 16)
             {
-                Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
+                tempWinEffect = Instantiate(winPar, particlePos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
                 puzzleComplete = true;
                 otherLamp.SetActive(false);
                 theLamp.SetActive(false);
@@ -90,6 +93,7 @@ public class Lamp : MonoBehaviour
                 windowHint.SetActive(true);
                 hint.SetActive(false);
                 lampSource.PlayOneShot(win, 1f);
+                coroutine = StartCoroutine(WaitTime());
 
             }
         }
@@ -110,7 +114,7 @@ public class Lamp : MonoBehaviour
    
     public void CHEAT()
     {
-        Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
+        tempWinEffect = Instantiate(winPar, particlePos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         puzzleComplete = true;
         otherLamp.SetActive(false);
         theLamp.SetActive(false);
@@ -119,5 +123,12 @@ public class Lamp : MonoBehaviour
         windowHint.SetActive(true);
         hint.SetActive(false);
         lampSource.PlayOneShot(win, 1f);
+        coroutine = StartCoroutine(WaitTime());
+    }
+
+    private IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(tempWinEffect);
     }
 }

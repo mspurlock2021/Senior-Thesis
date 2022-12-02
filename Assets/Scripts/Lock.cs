@@ -25,8 +25,9 @@ public class Lock : MonoBehaviour
     private Coroutine coroutine;
     private bool puzzleComplete;
 
-    public ParticleSystem winPar;
+    public GameObject winPar;
     public GameObject particlePos;
+    private GameObject tempWinEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +82,7 @@ public class Lock : MonoBehaviour
 
             if (currentSlot1 == 5 && currentSlot2 == 6 && currentSlot3 == 9 && currentSlot4 == 0)
             {
-                Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
+                tempWinEffect = Instantiate(winPar, particlePos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
                 puzzleComplete = true;
                 GetComponent<WinSound>().PlayWinSound();
                 coroutine = StartCoroutine(WaitTime());
@@ -115,7 +116,7 @@ public class Lock : MonoBehaviour
 
     public void CHEAT()
     {
-        Instantiate(winPar, particlePos.transform.position, Quaternion.identity);
+        tempWinEffect = Instantiate(winPar, particlePos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         puzzleComplete = true;
         GetComponent<WinSound>().PlayWinSound();
         coroutine = StartCoroutine(WaitTime());
@@ -128,6 +129,7 @@ public class Lock : MonoBehaviour
         drawerText.SetActive(true);
         key.SetActive(true);
         lockPanel.SetActive(false);
+        Destroy(tempWinEffect);
     }
 }
 

@@ -18,5 +18,9 @@ public class CorrespondingPanel : MonoBehaviour
         {
             CorrectPanel = GameObject.Find("Game Manager").GetComponent<GetGameObject>().pinHintPanel;
         }
+        if (panelName == "Book")
+        {
+            CorrectPanel = GameObject.Find("Game Manager").GetComponent<GetGameObject>().bookPanel;
+        }
     }
 }

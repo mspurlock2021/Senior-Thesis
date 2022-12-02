@@ -25,8 +25,9 @@ public class InventoryFunction : MonoBehaviour
     public GameObject[] correctPosterPiecesCHEAT = new GameObject[12];
     private Coroutine coroutine;
     
-    public ParticleSystem winPar;
+    public GameObject winPar;
     public GameObject posterParPos;
+    private GameObject tempWinEffect;
 
     private void Start()
     {
@@ -129,7 +130,8 @@ public class InventoryFunction : MonoBehaviour
                 if (piecesPlaced == 12)
                 {
                     GetComponent<WinSound>().PlayWinSound();
-                    Instantiate(winPar, posterParPos.transform.position, Quaternion.identity);
+                    tempWinEffect = Instantiate(winPar, posterParPos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+                    coroutine = StartCoroutine(PosterWaitTime());
                 }
             }
             else
@@ -160,6 +162,7 @@ public class InventoryFunction : MonoBehaviour
                 Destroy(HotBar[inventorySlotInUse].transform.GetChild(0).gameObject);
                 usingInventroy = false;
                 this.gameObject.GetComponent<WinSound>().PlayWinSound();
+                tempWinEffect = Instantiate(winPar, posterParPos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
                 coroutine = StartCoroutine(WaitTime());
             }
             else
@@ -181,9 +184,11 @@ public class InventoryFunction : MonoBehaviour
     {
         for (int i = 0; i < 12; i++)
         {
-            Instantiate(winPar, posterParPos.transform.position, Quaternion.identity);
             correctPosterPiecesCHEAT[i].SetActive(true);
         }
+        GetComponent<WinSound>().PlayWinSound();
+        tempWinEffect = Instantiate(winPar, posterParPos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        coroutine = StartCoroutine(PosterWaitTime());
     }
 
     public void ViewHeldItem (GameObject objToView)
@@ -213,5 +218,14 @@ public class InventoryFunction : MonoBehaviour
         else
             SceneManager.LoadScene("Main Menu");
 
+        Destroy(tempWinEffect);
+
     }
+
+    private IEnumerator PosterWaitTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(tempWinEffect);
+    }
+
 }

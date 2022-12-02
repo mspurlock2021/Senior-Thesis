@@ -33,6 +33,7 @@ public class SlideGame : MonoBehaviour
 
     public GameObject winPar;
     public GameObject posOfParticles;
+    private GameObject tempWinEffect;
 
     private void Start()
     {
@@ -89,7 +90,7 @@ public class SlideGame : MonoBehaviour
                 {
                     puzzleCompleted = true;
                     gameManager.GetComponent<WinSound>().PlayWinSound();
-                    Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity);
+                    tempWinEffect = Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
                     coroutine = StartCoroutine(WaitTime());
                 }
                
@@ -107,7 +108,7 @@ public class SlideGame : MonoBehaviour
     {
         puzzleCompleted = true;
         gameManager.GetComponent<WinSound>().PlayWinSound();
-        Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity);
+        tempWinEffect = Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         coroutine = StartCoroutine(WaitTime());
     }
 
@@ -132,6 +133,6 @@ public class SlideGame : MonoBehaviour
         {
             k.SetActive(true);
         }
-        //Destroy(winPar);
+        Destroy(tempWinEffect);
     }
 }

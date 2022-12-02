@@ -11,6 +11,8 @@ public class MusicContinuous : MonoBehaviour
     public float SEVolume;
     public AudioMixer MusicMixer;
     public AudioMixer SEMixer;
+    private const float MAXIMUM_RADIO_DISTANCE = -2061;
+    private const float RADIO_X_VALUE = 585;
 
 
     private void Start()
@@ -26,7 +28,7 @@ public class MusicContinuous : MonoBehaviour
             SEVolume = 0.2f;
         MusicMixer.SetFloat("MusicVol", Mathf.Log10(MusicVolume) * 20);
         SEMixer.SetFloat("SEVol", Mathf.Log10(SEVolume) * 20);
-        
+        //Debug.Log(Mathf.Log10(MusicVolume) * 20);
     }
     private void Awake()
     {
@@ -37,5 +39,18 @@ public class MusicContinuous : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+    }
+
+
+    public void RadioMusic(float currentScreenX)
+    {
+        float temp = currentScreenX - RADIO_X_VALUE;
+        temp /= MAXIMUM_RADIO_DISTANCE;
+        temp = Mathf.Abs(temp);
+        temp = 1 - temp;
+        float halfOfMusicVolume = PlayerPrefs.GetFloat("MusicVolume") / 2;
+        MusicMixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume") * temp + halfOfMusicVolume) * 20);
+        //Debug.Log(Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume") - halfOfMusicVolume * temp) * 20);
+        //Debug.Log(temp);
     }
 }

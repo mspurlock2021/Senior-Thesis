@@ -555,7 +555,7 @@ RectTransform:
   - {fileID: 453515996}
   - {fileID: 1438086802}
   m_Father: {fileID: 1102280368}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2979,7 +2979,7 @@ RectTransform:
   - {fileID: 1762026270}
   - {fileID: 809908161}
   m_Father: {fileID: 1102280368}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3024,37 +3024,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375739398}
   m_CullTransparentMesh: 1
---- !u!1 &376055363
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 376055364}
-  m_Layer: 0
-  m_Name: Particle Position
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &376055364
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376055363}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34, y: 370, z: -7.268507}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1102280368}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &378634600
 GameObject:
   m_ObjectHideFlags: 0
@@ -11632,9 +11601,9 @@ RectTransform:
   - {fileID: 2127302088}
   - {fileID: 1357504401}
   - {fileID: 254913057}
-  - {fileID: 376055364}
   - {fileID: 375739399}
   - {fileID: 52492221}
+  - {fileID: 1981608746}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15283,7 +15252,6 @@ GameObject:
   - component: {fileID: 1530961665}
   - component: {fileID: 1530961664}
   - component: {fileID: 1530961663}
-  - component: {fileID: 1530961666}
   - component: {fileID: 1530961667}
   - component: {fileID: 1530961668}
   m_Layer: 5
@@ -15377,18 +15345,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530961661}
   m_CullTransparentMesh: 1
---- !u!114 &1530961666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530961661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a55b5aae0048827439ce3208f490a261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1530961667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15410,8 +15366,8 @@ MonoBehaviour:
   hint: {fileID: 2692211}
   win: {fileID: 8300000, guid: 9b2e585d89a8b4a4584814355b4f4354, type: 3}
   otherLamp: {fileID: 301338167}
-  winPar: {fileID: 3765964726803318174, guid: 3a7910bd42012504696664025d555795, type: 3}
-  particlePos: {fileID: 376055363}
+  winPar: {fileID: 5885011777110409842, guid: 3a7910bd42012504696664025d555795, type: 3}
+  particlePos: {fileID: 1981608745}
 --- !u!82 &1530961668
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20681,8 +20637,8 @@ MonoBehaviour:
   pickupClip: {fileID: 8300000, guid: 4a943ff8e5566b8439d46c0e545bcf1e, type: 3}
   placePosterPiece: {fileID: 0}
   correctPosterPiecesCHEAT: []
-  winPar: {fileID: 0}
-  posterParPos: {fileID: 0}
+  winPar: {fileID: 5885011777110409842, guid: 3a7910bd42012504696664025d555795, type: 3}
+  posterParPos: {fileID: 1981608745}
 --- !u!114 &1915859534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20830,8 +20786,8 @@ MonoBehaviour:
   letterCHEATBtn: {fileID: 2026032183}
   pinCHEATBtn: {fileID: 1665259318}
   lockClickClip: {fileID: 8300000, guid: daee4e50f1ee7614f8e8674ad9a1abfe, type: 3}
-  winPar: {fileID: 6853452689916458645, guid: 5c531cfe7b5a2ac439eb00a76476c726, type: 3}
-  particlePos: {fileID: 376055363}
+  winPar: {fileID: 5885011777110409842, guid: 3a7910bd42012504696664025d555795, type: 3}
+  particlePos: {fileID: 1981608745}
 --- !u!82 &1915859540
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21000,8 +20956,8 @@ MonoBehaviour:
   lockSlots: {fileID: 1897133892}
   refPanel: {fileID: 1924051039}
   lockClickClip: {fileID: 8300000, guid: daee4e50f1ee7614f8e8674ad9a1abfe, type: 3}
-  particlePos: {fileID: 376055363}
-  winPar: {fileID: 6853452689916458645, guid: 5c531cfe7b5a2ac439eb00a76476c726, type: 3}
+  particlePos: {fileID: 1981608745}
+  winPar: {fileID: 5885011777110409842, guid: 3a7910bd42012504696664025d555795, type: 3}
 --- !u!114 &1915859543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21431,6 +21387,42 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -168, y: 81}
   m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1981608745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1981608746}
+  m_Layer: 5
+  m_Name: Particle Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1981608746
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981608745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1102280368}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 290.00006}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1981839268
 PrefabInstance:
