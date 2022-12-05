@@ -48,7 +48,7 @@ public class MusicContinuous : MonoBehaviour
         temp /= MAXIMUM_RADIO_DISTANCE;
         temp = Mathf.Abs(temp);
         temp = 1 - temp;
-        float halfOfMusicVolume = PlayerPrefs.GetFloat("MusicVolume") / 2;
+        float halfOfMusicVolume = PlayerPrefs.GetFloat("MusicVolume") / 4;
         MusicMixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume") * temp + halfOfMusicVolume) * 20);
         //Debug.Log(Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume") - halfOfMusicVolume * temp) * 20);
         //Debug.Log(temp);

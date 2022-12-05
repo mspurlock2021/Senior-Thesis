@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class VolumeSlider : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class VolumeSlider : MonoBehaviour
     [SerializeField] private AudioMixer mixer = null;
 
     [SerializeField] private string exposedParamString = null;
+
+    public RectTransform cam;
 
     private void Start()
     {
@@ -42,6 +45,15 @@ public class VolumeSlider : MonoBehaviour
             PlayerPrefs.SetFloat("SEVolume", volume);
         }
         volumeTextUI.text = (volume * 100).ToString("0");
-        mixer.SetFloat(exposedParamString, Mathf.Log10(volume) * 20);
+        if (SceneManager.GetActiveScene().name == "Level 1" && exposedParamString == "MusicVol")
+        {
+            //Debug.Log(exposedParamString);
+            GameObject.Find("Music").GetComponent<MusicContinuous>().RadioMusic(cam.anchoredPosition.x);
+            //Debug.Log("worked");
+        }
+        else if (!(SceneManager.GetActiveScene().name == "level 1"))
+        {
+            mixer.SetFloat(exposedParamString, Mathf.Log10(volume) * 20);
+        }
     }
 }

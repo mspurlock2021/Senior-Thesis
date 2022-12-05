@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class InventoryFunction : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class InventoryFunction : MonoBehaviour
     public GameObject winPar;
     public GameObject posterParPos;
     private GameObject tempWinEffect;
+
+    public AudioMixer MusicMixer;
 
     private void Start()
     {
@@ -214,9 +217,12 @@ public class InventoryFunction : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         if (SceneManager.GetActiveScene().name == "Level 1")
+        {
+            MusicMixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVol")) * 20);
             SceneManager.LoadScene("Level 2");
+        }
         else
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Win Screen");
 
         Destroy(tempWinEffect);
 

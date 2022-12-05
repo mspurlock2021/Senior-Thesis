@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseGame : MonoBehaviour
 {
     public GameObject pausePanel;
     public GameObject pauseButton;
     public GameObject settingsPanel;
+    public AudioMixer MusicMixer;
     public void PauseButtonPressed()
     {
         this.GetComponent<PanelActive>().panelOn = true;
@@ -30,11 +32,15 @@ public class PauseGame : MonoBehaviour
         this.GetComponent<CameraScroll>().canScroll = true;
         pausePanel.SetActive(false);
         pauseButton.SetActive(true);
+        if (SceneManager.GetActiveScene().name == "Level 1")
+            MusicMixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVol")) * 20);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenuPressed()
     {
+        if (SceneManager.GetActiveScene().name == "Level 1")
+            MusicMixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVol")) * 20);
         SceneManager.LoadScene("Main Menu");
     }
 
