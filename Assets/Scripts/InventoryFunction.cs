@@ -31,6 +31,8 @@ public class InventoryFunction : MonoBehaviour
     private GameObject tempWinEffect;
 
     public AudioMixer MusicMixer;
+    public GameObject pauseButton;
+    public GameObject lockInteractObj;
 
     private void Start()
     {
@@ -134,6 +136,7 @@ public class InventoryFunction : MonoBehaviour
                 {
                     GetComponent<WinSound>().PlayWinSound();
                     tempWinEffect = Instantiate(winPar, posterParPos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+                    lockInteractObj.SetActive(true);
                     coroutine = StartCoroutine(PosterWaitTime());
                 }
             }
@@ -191,6 +194,7 @@ public class InventoryFunction : MonoBehaviour
         }
         GetComponent<WinSound>().PlayWinSound();
         tempWinEffect = Instantiate(winPar, posterParPos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        lockInteractObj.SetActive(true);
         coroutine = StartCoroutine(PosterWaitTime());
     }
 
@@ -201,6 +205,7 @@ public class InventoryFunction : MonoBehaviour
             usingInventroy = true;
             objToView.GetComponent<CorrespondingPanel>().CorrectPanel.SetActive(true);
             this.GetComponent<PanelActive>().viewPanelOn = true;
+            pauseButton.transform.SetAsLastSibling();
         }
     }
 
@@ -218,7 +223,7 @@ public class InventoryFunction : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
-            MusicMixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVol")) * 20);
+            MusicMixer.SetFloat("MusicVol", Mathf.Log10(GameObject.Find("Music").GetComponent<MusicContinuous>().MusicVolume) * 20);
             SceneManager.LoadScene("Level 2");
         }
         else

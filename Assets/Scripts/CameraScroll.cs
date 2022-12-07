@@ -16,7 +16,7 @@ public class CameraScroll : MonoBehaviour
     private float maxLowerBound;
     private const float SCREEN_MINIMUM = 0.0f;
     private float currentScrollSpeed;
-    public bool canScroll;
+    private bool canScroll;
     private GameObject musicObject;
 
 
@@ -34,6 +34,7 @@ public class CameraScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        canScroll = !this.GetComponent<PanelActive>().panelOn && !this.GetComponent<PanelActive>().viewPanelOn && !this.GetComponent<PanelActive>().pausePanelOn;
 
         if (Input.mousePosition.x > maxLowerBound && cam.anchoredPosition.x > maximum && canScroll)
         {

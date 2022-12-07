@@ -24,6 +24,7 @@ public class Lamp : MonoBehaviour
     public GameObject winPar;
     public GameObject particlePos;
     private GameObject tempWinEffect;
+    public GameObject lockInteractObj;
 
     // Start is called before the first frame update
     void Start()
@@ -92,6 +93,7 @@ public class Lamp : MonoBehaviour
                 dashButton.SetActive(false);
                 windowHint.SetActive(true);
                 hint.SetActive(false);
+                lockInteractObj.SetActive(true);
                 lampSource.PlayOneShot(win, 1f);
                 coroutine = StartCoroutine(WaitTime());
 
@@ -122,6 +124,7 @@ public class Lamp : MonoBehaviour
         dashButton.SetActive(false);
         windowHint.SetActive(true);
         hint.SetActive(false);
+        lockInteractObj.SetActive(true);
         lampSource.PlayOneShot(win, 1f);
         coroutine = StartCoroutine(WaitTime());
     }

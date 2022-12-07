@@ -34,6 +34,7 @@ public class SlideGame : MonoBehaviour
     public GameObject winPar;
     public GameObject posOfParticles;
     private GameObject tempWinEffect;
+    public GameObject posterInteractObj;
 
     private void Start()
     {
@@ -82,15 +83,16 @@ public class SlideGame : MonoBehaviour
 
         foreach (GameObject tempButton in Buttons)
         {
-            if (Mathf.Abs(tempButton.GetComponent<RectTransform>().anchoredPosition.magnitude - WinPos[i].GetComponent<RectTransform>().anchoredPosition.magnitude) < 5)
+            if (Mathf.Abs(Mathf.Sqrt(Mathf.Pow(tempButton.GetComponent<RectTransform>().anchoredPosition.x - WinPos[i].GetComponent<RectTransform>().anchoredPosition.x, 2) + Mathf.Pow(tempButton.GetComponent<RectTransform>().anchoredPosition.y - WinPos[i].GetComponent<RectTransform>().anchoredPosition.y, 2))) < 5)
             {
-                //Debug.Log(i);
+                //Debug.Log(Mathf.Abs(tempButton.GetComponent<RectTransform>().anchoredPosition.magnitude - WinPos[i].GetComponent<RectTransform>().anchoredPosition.magnitude));
                 i++;
                 if (i == 9)
                 {
                     puzzleCompleted = true;
                     gameManager.GetComponent<WinSound>().PlayWinSound();
                     tempWinEffect = Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+                    posterInteractObj.SetActive(true);
                     coroutine = StartCoroutine(WaitTime());
                 }
                
@@ -98,6 +100,7 @@ public class SlideGame : MonoBehaviour
             }
             else
             {
+                i = 0;
                 //Debug.Log(i + "is false");
                 break;
             }
@@ -109,6 +112,7 @@ public class SlideGame : MonoBehaviour
         puzzleCompleted = true;
         gameManager.GetComponent<WinSound>().PlayWinSound();
         tempWinEffect = Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        posterInteractObj.SetActive(true);
         coroutine = StartCoroutine(WaitTime());
     }
 

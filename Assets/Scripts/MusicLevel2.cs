@@ -12,11 +12,20 @@ public class MusicLevel2 : MonoBehaviour
     void Start()
     {
         musicObj = GameObject.Find("Music").GetComponent<AudioSource>();
-        timeOfMusic = musicObj.time;
-        musicObj.Stop();
-        musicObj.clip = muffledMusic;
-        musicObj.Play();
-        musicObj.time = timeOfMusic;
+        if (musicObj.isPlaying)
+        {
+            timeOfMusic = musicObj.time;
+            musicObj.Stop();
+            musicObj.clip = muffledMusic;
+            musicObj.Play();
+            musicObj.time = timeOfMusic;
+        }
+        else
+        {
+            musicObj.clip = muffledMusic;
+            musicObj.Play();
+            musicObj.time = 0;
+        }
 
     }
 

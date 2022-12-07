@@ -28,7 +28,7 @@ public class ObjectInteraction : MonoBehaviour
     {
         if (!gameManager.GetComponent<PanelActive>().panelOn)
         {
-            gameManager.GetComponent<CameraScroll>().canScroll = false;
+            //gameManager.GetComponent<CameraScroll>().canScroll = false;
             panel.SetActive(true);
             inventory.transform.SetAsLastSibling();
             gameManager.GetComponent<PanelActive>().panelOn = true;
@@ -42,7 +42,7 @@ public class ObjectInteraction : MonoBehaviour
     {
         if (gameManager.GetComponent<PanelActive>().panelOn)
         {
-            gameManager.GetComponent<CameraScroll>().canScroll = true;
+            //gameManager.GetComponent<CameraScroll>().canScroll = true;
             panel.SetActive(false);
             gameManager.GetComponent<PanelActive>().panelOn = false;
         }

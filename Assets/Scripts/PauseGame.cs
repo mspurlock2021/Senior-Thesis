@@ -12,35 +12,35 @@ public class PauseGame : MonoBehaviour
     public AudioMixer MusicMixer;
     public void PauseButtonPressed()
     {
-        this.GetComponent<PanelActive>().panelOn = true;
-        this.GetComponent<CameraScroll>().canScroll = false;
+        this.GetComponent<PanelActive>().pausePanelOn = true;
+        //this.GetComponent<CameraScroll>().canScroll = false;
         pausePanel.SetActive(true);
         pauseButton.SetActive(false);
     }
 
     public void ResumeButtonPressed()
     {
-        this.GetComponent<PanelActive>().panelOn = false;
-        this.GetComponent<CameraScroll>().canScroll = true;
+        this.GetComponent<PanelActive>().pausePanelOn = false;
+        //this.GetComponent<CameraScroll>().canScroll = true;
         pausePanel.SetActive(false);
         pauseButton.SetActive(true);
     }
 
     public void RestartButtonPressed()
     {
-        this.GetComponent<PanelActive>().panelOn = false;
-        this.GetComponent<CameraScroll>().canScroll = true;
+        this.GetComponent<PanelActive>().pausePanelOn = false;
+        //this.GetComponent<CameraScroll>().canScroll = true;
         pausePanel.SetActive(false);
         pauseButton.SetActive(true);
         if (SceneManager.GetActiveScene().name == "Level 1")
-            MusicMixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVol")) * 20);
+            MusicMixer.SetFloat("MusicVol", Mathf.Log10(GameObject.Find("Music").GetComponent<MusicContinuous>().MusicVolume) * 20);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenuPressed()
     {
         if (SceneManager.GetActiveScene().name == "Level 1")
-            MusicMixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVol")) * 20);
+            MusicMixer.SetFloat("MusicVol", Mathf.Log10(GameObject.Find("Music").GetComponent<MusicContinuous>().MusicVolume) * 20);
         SceneManager.LoadScene("Main Menu");
     }
 
