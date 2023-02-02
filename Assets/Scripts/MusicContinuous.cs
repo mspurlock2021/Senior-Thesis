@@ -11,7 +11,7 @@ public class MusicContinuous : MonoBehaviour
     public float SEVolume;
     public AudioMixer MusicMixer;
     public AudioMixer SEMixer;
-    private const float MAXIMUM_RADIO_DISTANCE = -2061;
+    private const float MAXIMUM_RADIO_DISTANCE = -1582;
     private const float RADIO_X_VALUE = 585;
 
 

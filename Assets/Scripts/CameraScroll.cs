@@ -42,7 +42,7 @@ public class CameraScroll : MonoBehaviour
             cam.anchoredPosition = new Vector2(cam.anchoredPosition.x - currentScrollSpeed * Time.deltaTime, cam.anchoredPosition.y);
 
             if (SceneManager.GetActiveScene().name == "Level 1")
-                musicObject.GetComponent<MusicContinuous>().RadioMusic(cam.anchoredPosition.x);
+                musicObject.GetComponent<MusicContinuous>().RadioMusic(cam.anchoredPosition.x); 
         }
         else if (cam.anchoredPosition.x < maximum)
         {
