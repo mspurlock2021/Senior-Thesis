@@ -2209,7 +2209,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 814779601}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2841,103 +2841,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285673167}
   m_CullTransparentMesh: 1
---- !u!1 &301338167
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 301338170}
-  - component: {fileID: 301338169}
-  - component: {fileID: 301338168}
-  - component: {fileID: 301338171}
-  m_Layer: 5
-  m_Name: Fake Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &301338168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301338167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.94471574, b: 0, a: 0.25490198}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &301338169
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301338167}
-  m_CullTransparentMesh: 1
---- !u!224 &301338170
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301338167}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 814779601}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1377, y: -0.000019073}
-  m_SizeDelta: {x: 486.6038, y: 389.9526}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &301338171
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301338167}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9312573af0a2caa47ab9885e9ff76f83, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &306116013 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6971033820538571435, guid: 07bc526af52d40340a5ede77b32bea1f, type: 3}
@@ -9168,7 +9071,6 @@ RectTransform:
   - {fileID: 1924051040}
   - {fileID: 1301014887}
   - {fileID: 623319272}
-  - {fileID: 301338170}
   - {fileID: 1603131032}
   - {fileID: 240032114}
   m_Father: {fileID: 1102280368}
@@ -17977,7 +17879,7 @@ MonoBehaviour:
   paper: {fileID: 851586980}
   hint: {fileID: 2692211}
   win: {fileID: 8300000, guid: 9b2e585d89a8b4a4584814355b4f4354, type: 3}
-  otherLamp: {fileID: 301338167}
+  otherLamp: {fileID: 0}
   winPar: {fileID: 5885011777110409842, guid: 3a7910bd42012504696664025d555795, type: 3}
   particlePos: {fileID: 1981608745}
   lockInteractObj: {fileID: 1301014886}
@@ -18613,7 +18515,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 814779601}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23811,7 +23713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee494166840bce4f9a52a8a73569147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theLamp: {fileID: 301338167}
+  theLamp: {fileID: 0}
   dashButton: {fileID: 0}
   dotButton: {fileID: 0}
   windowHint: {fileID: 0}
