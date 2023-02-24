@@ -51,24 +51,28 @@ public class Lock : MonoBehaviour
                     Slot1[currentSlot1].SetActive(false);
                     currentSlot1++;
                     currentSlot1 = CheckSlotNum(currentSlot1);
+                    PlayLockAnimation();
                     Slot1[currentSlot1].SetActive(true);
                     break;
                 case 2:
                     Slot2[currentSlot2].SetActive(false);
                     currentSlot2++;
                     currentSlot2 = CheckSlotNum(currentSlot2);
+                    PlayLockAnimation();
                     Slot2[currentSlot2].SetActive(true);
                     break;
                 case 3:
                     Slot3[currentSlot3].SetActive(false);
                     currentSlot3++;
                     currentSlot3 = CheckSlotNum(currentSlot3);
+                    PlayLockAnimation();
                     Slot3[currentSlot3].SetActive(true);
                     break;
                 case 4:
                     Slot4[currentSlot4].SetActive(false);
                     currentSlot4++;
                     currentSlot4 = CheckSlotNum(currentSlot4);
+                    PlayLockAnimation();
                     Slot4[currentSlot4].SetActive(true);
                     break;
                 default:
@@ -88,6 +92,11 @@ public class Lock : MonoBehaviour
                 coroutine = StartCoroutine(WaitTime());
             }
         }
+    }
+
+    private void PlayLockAnimation()
+    {
+
     }
 
     private int CheckSlotNum(int numToCheck)

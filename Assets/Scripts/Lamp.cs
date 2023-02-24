@@ -16,8 +16,9 @@ public class Lamp : MonoBehaviour
     public GameObject paper;
     public GameObject hint;
     public AudioClip win;
-    public GameObject otherLamp;
-    private bool puzzleComplete;
+    //public GameObject otherLamp;
+    //private bool puzzleComplete;
+    public GameObject[] progressBar;
 
     private Coroutine coroutine;
 
@@ -29,7 +30,7 @@ public class Lamp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        puzzleComplete = false;
+        //puzzleComplete = false;
         lampSource = GetComponent<AudioSource>();
         correctInput = new string[16];
         userInput = new string[16];
@@ -56,14 +57,14 @@ public class Lamp : MonoBehaviour
 
     public void TurnOffOtherLamp ()
     {
-        if(!puzzleComplete)
-        otherLamp.SetActive(false);
+        //if(!puzzleComplete)
+        //otherLamp.SetActive(false);
     }
 
     public void TurnOnOtherLamp ()
     {
-        if(!puzzleComplete)
-        otherLamp.SetActive(true);
+        //if(!puzzleComplete)
+        //otherLamp.SetActive(true);
     }
 
     public void DashPressed()
@@ -83,11 +84,12 @@ public class Lamp : MonoBehaviour
         if (userInput[currentSequenceInput] == correctInput[currentSequenceInput])
         {
             currentSequenceInput++;
+            ShowLampProgress();
             if(currentSequenceInput == 16)
             {
                 tempWinEffect = Instantiate(winPar, particlePos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
-                puzzleComplete = true;
-                otherLamp.SetActive(false);
+                //puzzleComplete = true;
+                //otherLamp.SetActive(false);
                 theLamp.SetActive(false);
                 dotButton.SetActive(false);
                 dashButton.SetActive(false);
@@ -96,6 +98,12 @@ public class Lamp : MonoBehaviour
                 lockInteractObj.SetActive(true);
                 lampSource.PlayOneShot(win, 1f);
                 coroutine = StartCoroutine(WaitTime());
+                foreach (GameObject x in progressBar)
+                {
+                    x.SetActive(false);
+                }    
+
+                
 
             }
         }
@@ -103,9 +111,34 @@ public class Lamp : MonoBehaviour
         {
             lampSource.PlayOneShot(error, 1f);
             currentSequenceInput = 0;
+            ShowLampProgress();
         }
 
 
+    }
+
+    private void ShowLampProgress ()
+    {
+        if (currentSequenceInput >= 3)
+            progressBar[0].SetActive(true);
+        else
+            progressBar[0].SetActive(false);
+        if (currentSequenceInput >= 5)
+            progressBar[1].SetActive(true);
+        else
+            progressBar[1].SetActive(false);
+        if (currentSequenceInput >= 7)
+            progressBar[2].SetActive(true);
+        else
+            progressBar[2].SetActive(false);
+        if (currentSequenceInput >= 10)
+            progressBar[3].SetActive(true);
+        else
+            progressBar[3].SetActive(false);
+        if (currentSequenceInput >= 13)
+            progressBar[4].SetActive(true);
+        else
+            progressBar[4].SetActive(false);
     }
 
     public void PaperCollected()
@@ -117,8 +150,8 @@ public class Lamp : MonoBehaviour
     public void CHEAT()
     {
         tempWinEffect = Instantiate(winPar, particlePos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
-        puzzleComplete = true;
-        otherLamp.SetActive(false);
+        //puzzleComplete = true;
+        //otherLamp.SetActive(false);
         theLamp.SetActive(false);
         dotButton.SetActive(false);
         dashButton.SetActive(false);
