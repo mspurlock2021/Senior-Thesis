@@ -175,6 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kindOfObject: poster
-  objToFind: PosterOutline11
+  objToFind: POC 11
   posterOutlinePiece: {fileID: 0}
   correctPosterPiece: {fileID: 0}
