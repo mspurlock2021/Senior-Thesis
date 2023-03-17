@@ -173,28 +173,28 @@ public class Lock : MonoBehaviour
 
     private IEnumerator LockSlot1WaitTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
         LockSlot1Anim.SetBool("Go to Next State", false);
         transitioningSlot1 = false;
     }
 
     private IEnumerator LockSlot2WaitTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
         LockSlot2Anim.SetBool("Go to Next State", false);
         transitioningSlot2 = false;
     }
 
     private IEnumerator LockSlot3WaitTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
         LockSlot3Anim.SetBool("Go to Next State", false);
         transitioningSlot3 = false;
     }
 
     private IEnumerator LockSlot4WaitTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
         LockSlot4Anim.SetBool("Go to Next State", false);
         transitioningSlot4 = false;
     }

@@ -151,7 +151,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: dd577d8a18915434c9fe34625d68ed93, type: 2}
-  m_audioClip: {fileID: 8300000, guid: dcabbbbf5f5be7f47a85409be0a456b9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3475701ae205ba745a2cd7e0216218a4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ef69a03f1c94847a8a49bb62e281b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muffledMusic: {fileID: 8300000, guid: dcabbbbf5f5be7f47a85409be0a456b9, type: 3}
+  muffledMusic: {fileID: 8300000, guid: 3475701ae205ba745a2cd7e0216218a4, type: 3}
 --- !u!1 &1958188708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,7 +2256,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 068b16bcb8386ce49b2ee6e88af40158, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: f31015559617c5a48a29b08525b417ec, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 068b16bcb8386ce49b2ee6e88af40158, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
