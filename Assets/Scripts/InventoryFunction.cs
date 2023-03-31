@@ -34,6 +34,8 @@ public class InventoryFunction : MonoBehaviour
     public GameObject pauseButton;
     public GameObject lockInteractObj;
 
+    public GameObject swapInvPage;
+
     private void Start()
     {
         piecesPlaced = 0;
@@ -50,6 +52,7 @@ public class InventoryFunction : MonoBehaviour
 
         OnFirstBar = true;
         usingInventroy = false;
+        swapInvPage.SetActive(false);
     }
 
     private void Update()
@@ -72,6 +75,8 @@ public class InventoryFunction : MonoBehaviour
                 Cursor.SetCursor(normalCursor, NormHotspot, cursorMode);
                 pickupSource.pitch = Random.Range(0.8f, 1f);
                 pickupSource.PlayOneShot(pickupClip, 1f);
+                if (i > 5)
+                    swapInvPage.SetActive(true);
                 break;
             }
         }
@@ -132,6 +137,14 @@ public class InventoryFunction : MonoBehaviour
                 pickupSource.pitch = Random.Range(0.8f, 1f);
                 pickupSource.PlayOneShot(placePosterPiece, 1f);
                 piecesPlaced++;
+                if(SecondBarEmpty())
+                {
+                    swapInvPage.SetActive(false);
+                    if(!OnFirstBar)
+                    {
+                        SwapInventory();
+                    }
+                }
                 if (piecesPlaced == 12)
                 {
                     GetComponent<WinSound>().PlayWinSound();
@@ -169,6 +182,14 @@ public class InventoryFunction : MonoBehaviour
                 usingInventroy = false;
                 this.gameObject.GetComponent<WinSound>().PlayWinSound();
                 tempWinEffect = Instantiate(winPar, posterParPos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+                if (SecondBarEmpty())
+                {
+                    swapInvPage.SetActive(false);
+                    if (!OnFirstBar)
+                    {
+                        SwapInventory();
+                    }
+                }
                 coroutine = StartCoroutine(WaitTime());
             }
             else
@@ -237,6 +258,14 @@ public class InventoryFunction : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         Destroy(tempWinEffect);
+    }
+
+    private bool SecondBarEmpty()
+    {
+        if (filledSlots[6] == false && filledSlots[7] == false && filledSlots[8] == false && filledSlots[9] == false && filledSlots[10] == false && filledSlots[11] == false)
+            return true;
+        else
+            return false;
     }
 
 }
