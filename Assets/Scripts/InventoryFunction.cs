@@ -35,6 +35,7 @@ public class InventoryFunction : MonoBehaviour
     public GameObject lockInteractObj;
 
     public GameObject swapInvPage;
+    public GameObject swapInvPage2;
 
     private void Start()
     {
@@ -53,6 +54,7 @@ public class InventoryFunction : MonoBehaviour
         OnFirstBar = true;
         usingInventroy = false;
         swapInvPage.SetActive(false);
+        swapInvPage2.SetActive(false);
     }
 
     private void Update()
@@ -76,7 +78,10 @@ public class InventoryFunction : MonoBehaviour
                 pickupSource.pitch = Random.Range(0.8f, 1f);
                 pickupSource.PlayOneShot(pickupClip, 1f);
                 if (i > 5)
+                {
                     swapInvPage.SetActive(true);
+                    swapInvPage2.SetActive(true);
+                }
                 break;
             }
         }
@@ -140,7 +145,8 @@ public class InventoryFunction : MonoBehaviour
                 if(SecondBarEmpty())
                 {
                     swapInvPage.SetActive(false);
-                    if(!OnFirstBar)
+                    swapInvPage2.SetActive(false);
+                    if (!OnFirstBar)
                     {
                         SwapInventory();
                     }
@@ -185,6 +191,7 @@ public class InventoryFunction : MonoBehaviour
                 if (SecondBarEmpty())
                 {
                     swapInvPage.SetActive(false);
+                    swapInvPage2.SetActive(false);
                     if (!OnFirstBar)
                     {
                         SwapInventory();

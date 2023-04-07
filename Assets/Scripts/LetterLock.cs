@@ -63,6 +63,8 @@ public class LetterLock : MonoBehaviour
     private bool transitioningSlot5;
     private bool transitioningSlot6;
 
+    public GameObject backgroundPlaceholder;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -218,6 +220,7 @@ public class LetterLock : MonoBehaviour
         letterCHEATBtn.SetActive(false);
         pinCHEATBtn.SetActive(true);
         Destroy(tempWinEffect);
+        backgroundPlaceholder.SetActive(true);
     }
 
     private IEnumerator LockSlot1WaitTime()
