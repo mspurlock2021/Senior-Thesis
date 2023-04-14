@@ -1058,7 +1058,7 @@ MonoBehaviour:
   panel: {fileID: 64543552}
   gameManager: {fileID: 707515171}
   inventory: {fileID: 1835152316}
-  openPanel: {fileID: 8300000, guid: 94e5f0dbb19ec6a45a8d58a2570f7317, type: 3}
+  openPanel: {fileID: 8300000, guid: 7a1452b7884878e45ab04a0b53cc83c8, type: 3}
 --- !u!82 &64543555
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   panel: {fileID: 77041682}
   gameManager: {fileID: 707515171}
   inventory: {fileID: 1835152316}
-  openPanel: {fileID: 8300000, guid: 5d7a62b49b29aa741a57702f7bb0ab35, type: 3}
+  openPanel: {fileID: 8300000, guid: 7a1452b7884878e45ab04a0b53cc83c8, type: 3}
 --- !u!114 &77041685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3044,7 +3044,7 @@ MonoBehaviour:
   panel: {fileID: 183487982}
   gameManager: {fileID: 707515171}
   inventory: {fileID: 1835152316}
-  openPanel: {fileID: 8300000, guid: 94e5f0dbb19ec6a45a8d58a2570f7317, type: 3}
+  openPanel: {fileID: 8300000, guid: 7a1452b7884878e45ab04a0b53cc83c8, type: 3}
 --- !u!114 &183487985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11893,8 +11893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97615f15e9791784480b44ab6fea16c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  investigateCursor: {fileID: 2800000, guid: db205fd40c26e954bad127d696b49b3a, type: 3}
-  normalCursor: {fileID: 2800000, guid: 8d85c03ed71816849b43040353c2f921, type: 3}
+  investigateCursor: {fileID: 2800000, guid: ad9c1ecd786e0824c8ce9d58a2da583e, type: 3}
+  normalCursor: {fileID: 2800000, guid: f67b88167d8a6fe469e4a11b34fe9ab0, type: 3}
   cursorMode: 0
   InvestHotspot: {x: 0, y: 0}
   NormHotspot: {x: 0, y: 0}
@@ -11940,10 +11940,10 @@ MonoBehaviour:
   - {fileID: 552696764}
   posterPanel: {fileID: 1766587859}
   canvasObject: {fileID: 191918064}
-  normalCursor: {fileID: 2800000, guid: 8d85c03ed71816849b43040353c2f921, type: 3}
+  normalCursor: {fileID: 2800000, guid: f67b88167d8a6fe469e4a11b34fe9ab0, type: 3}
   cursorMode: 0
   NormHotspot: {x: 0, y: 0}
-  pickupClip: {fileID: 8300000, guid: 4a943ff8e5566b8439d46c0e545bcf1e, type: 3}
+  pickupClip: {fileID: 8300000, guid: ef693a8bcac023c4b95929420617578c, type: 3}
   placePosterPiece: {fileID: 8300000, guid: bd0fff10a0d9f1742bf4e29f4f4325db, type: 3}
   correctPosterPiecesCHEAT:
   - {fileID: 352893841}
@@ -12016,8 +12016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7f55a025006bf4e8ab8867a3a59a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handCursor: {fileID: 2800000, guid: cceb71f59040021469c4e29a443aa8e1, type: 3}
-  normalCursor: {fileID: 2800000, guid: 8d85c03ed71816849b43040353c2f921, type: 3}
+  handCursor: {fileID: 2800000, guid: fa64f776ca7ca524888431316b5e4eeb, type: 3}
+  normalCursor: {fileID: 2800000, guid: f67b88167d8a6fe469e4a11b34fe9ab0, type: 3}
   cursorMode: 0
   handHotspot: {x: 0, y: 0}
   NormHotspot: {x: 0, y: 0}
@@ -12129,7 +12129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa1027e51a86b74fbf93cc2a216547b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  win: {fileID: 8300000, guid: 9b2e585d89a8b4a4584814355b4f4354, type: 3}
+  win: {fileID: 8300000, guid: 076706e5af6e9004b971ec4e3e83478f, type: 3}
 --- !u!1 &710848620
 GameObject:
   m_ObjectHideFlags: 0
@@ -18449,7 +18449,7 @@ MonoBehaviour:
   panel: {fileID: 1164010862}
   gameManager: {fileID: 707515171}
   inventory: {fileID: 1835152316}
-  openPanel: {fileID: 8300000, guid: 94e5f0dbb19ec6a45a8d58a2570f7317, type: 3}
+  openPanel: {fileID: 8300000, guid: 7a1452b7884878e45ab04a0b53cc83c8, type: 3}
 --- !u!82 &1164010865
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24341,7 +24341,7 @@ MonoBehaviour:
   panel: {fileID: 1766587859}
   gameManager: {fileID: 707515171}
   inventory: {fileID: 1835152316}
-  openPanel: {fileID: 8300000, guid: bd0fff10a0d9f1742bf4e29f4f4325db, type: 3}
+  openPanel: {fileID: 8300000, guid: 7a1452b7884878e45ab04a0b53cc83c8, type: 3}
 --- !u!114 &1766587862
 MonoBehaviour:
   m_ObjectHideFlags: 0

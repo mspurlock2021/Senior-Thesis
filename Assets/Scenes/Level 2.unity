@@ -5781,7 +5781,7 @@ MonoBehaviour:
   panel: {fileID: 486489737}
   gameManager: {fileID: 1915859530}
   inventory: {fileID: 1386169580}
-  openPanel: {fileID: 8300000, guid: 94e5f0dbb19ec6a45a8d58a2570f7317, type: 3}
+  openPanel: {fileID: 8300000, guid: 7a1452b7884878e45ab04a0b53cc83c8, type: 3}
 --- !u!114 &486489740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7052,7 +7052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 62905f70b511e0d47aa6f2d58062abcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41fc9e52c090d77458686e6fd33175d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16139,7 +16139,7 @@ MonoBehaviour:
   panel: {fileID: 1181927938}
   gameManager: {fileID: 1915859530}
   inventory: {fileID: 1386169580}
-  openPanel: {fileID: 8300000, guid: 5d7a62b49b29aa741a57702f7bb0ab35, type: 3}
+  openPanel: {fileID: 8300000, guid: 7a1452b7884878e45ab04a0b53cc83c8, type: 3}
 --- !u!114 &1181927941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20006,7 +20006,7 @@ MonoBehaviour:
   panel: {fileID: 1530961661}
   gameManager: {fileID: 1915859530}
   inventory: {fileID: 1386169580}
-  openPanel: {fileID: 8300000, guid: 5d7a62b49b29aa741a57702f7bb0ab35, type: 3}
+  openPanel: {fileID: 8300000, guid: 7a1452b7884878e45ab04a0b53cc83c8, type: 3}
 --- !u!114 &1530961664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20061,10 +20061,10 @@ MonoBehaviour:
   dashButton: {fileID: 1203248998}
   dotButton: {fileID: 39947129}
   windowHint: {fileID: 2092994201}
-  error: {fileID: 8300000, guid: e592f75a5405955419aeb9a5e17b4937, type: 3}
+  error: {fileID: 8300000, guid: 17fedbb22e9e2db48b8d6ef9a78bc538, type: 3}
   paper: {fileID: 851586980}
   hint: {fileID: 2692211}
-  win: {fileID: 8300000, guid: 9b2e585d89a8b4a4584814355b4f4354, type: 3}
+  win: {fileID: 8300000, guid: 076706e5af6e9004b971ec4e3e83478f, type: 3}
   progressBar:
   - {fileID: 566751815}
   - {fileID: 1136414020}
@@ -26159,7 +26159,7 @@ MonoBehaviour:
   normalCursor: {fileID: 0}
   cursorMode: 0
   NormHotspot: {x: 0, y: 0}
-  pickupClip: {fileID: 8300000, guid: 4a943ff8e5566b8439d46c0e545bcf1e, type: 3}
+  pickupClip: {fileID: 8300000, guid: ef693a8bcac023c4b95929420617578c, type: 3}
   placePosterPiece: {fileID: 0}
   correctPosterPiecesCHEAT: []
   winPar: {fileID: 5885011777110409842, guid: 3a7910bd42012504696664025d555795, type: 3}
@@ -26196,8 +26196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97615f15e9791784480b44ab6fea16c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  investigateCursor: {fileID: 2800000, guid: db205fd40c26e954bad127d696b49b3a, type: 3}
-  normalCursor: {fileID: 2800000, guid: 8d85c03ed71816849b43040353c2f921, type: 3}
+  investigateCursor: {fileID: 2800000, guid: ad9c1ecd786e0824c8ce9d58a2da583e, type: 3}
+  normalCursor: {fileID: 2800000, guid: f67b88167d8a6fe469e4a11b34fe9ab0, type: 3}
   cursorMode: 0
   InvestHotspot: {x: 0, y: 0}
   NormHotspot: {x: 0, y: 0}
@@ -26368,7 +26368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa1027e51a86b74fbf93cc2a216547b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  win: {fileID: 8300000, guid: 9b2e585d89a8b4a4584814355b4f4354, type: 3}
+  win: {fileID: 8300000, guid: 076706e5af6e9004b971ec4e3e83478f, type: 3}
 --- !u!114 &1915859542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26410,8 +26410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7f55a025006bf4e8ab8867a3a59a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handCursor: {fileID: 2800000, guid: cceb71f59040021469c4e29a443aa8e1, type: 3}
-  normalCursor: {fileID: 2800000, guid: 8d85c03ed71816849b43040353c2f921, type: 3}
+  handCursor: {fileID: 2800000, guid: fa64f776ca7ca524888431316b5e4eeb, type: 3}
+  normalCursor: {fileID: 2800000, guid: f67b88167d8a6fe469e4a11b34fe9ab0, type: 3}
   cursorMode: 0
   handHotspot: {x: 0, y: 0}
   NormHotspot: {x: 0, y: 0}
