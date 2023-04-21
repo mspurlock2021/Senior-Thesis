@@ -165,7 +165,7 @@ public class Lock : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         drawer.SetActive(true);
-        drawerText.SetActive(true);
+        //drawerText.SetActive(true);
         key.SetActive(true);
         lockPanel.SetActive(false);
         Destroy(tempWinEffect);

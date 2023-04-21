@@ -37,6 +37,8 @@ public class InventoryFunction : MonoBehaviour
     public GameObject swapInvPage;
     public GameObject swapInvPage2;
 
+    public AudioClip buttonClicked;
+
     private void Start()
     {
         piecesPlaced = 0;
@@ -89,6 +91,8 @@ public class InventoryFunction : MonoBehaviour
 
     public void SwapInventory()
     {
+        pickupSource.pitch = Random.Range(0.8f, 1f);
+        pickupSource.PlayOneShot(buttonClicked, 1f);
         if (OnFirstBar)
         {
             for (int i = 0; i < 6; i++)
@@ -119,6 +123,8 @@ public class InventoryFunction : MonoBehaviour
     {
         if (!usingInventroy)
         {
+            pickupSource.pitch = Random.Range(0.8f, 1f);
+            pickupSource.PlayOneShot(buttonClicked, 1f);
             inventorySlotInUse = ObjToPlace.GetComponent<InvSlot>().CurrentInventorySlot;
             currentlyHeld = Instantiate(ObjToPlace.GetComponent<PosterPiece>().thisPosterPiece, HotBar[inventorySlotInUse].transform.position, Quaternion.identity, canvasObject.transform);
             HotBar[inventorySlotInUse].transform.GetChild(0).gameObject.SetActive(false);
@@ -186,7 +192,7 @@ public class InventoryFunction : MonoBehaviour
                 filledSlots[inventorySlotInUse] = false;
                 Destroy(HotBar[inventorySlotInUse].transform.GetChild(0).gameObject);
                 usingInventroy = false;
-                this.gameObject.GetComponent<WinSound>().PlayWinSound();
+                this.gameObject.GetComponent<LevelCompleteSound>().PlayWinSound();
                 tempWinEffect = Instantiate(winPar, posterParPos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
                 if (SecondBarEmpty())
                 {
@@ -230,6 +236,8 @@ public class InventoryFunction : MonoBehaviour
     {
         if (!this.GetComponent<PanelActive>().viewPanelOn && !usingInventroy)
         {
+            pickupSource.pitch = Random.Range(0.8f, 1f);
+            pickupSource.PlayOneShot(buttonClicked, 1f);
             usingInventroy = true;
             objToView.GetComponent<CorrespondingPanel>().CorrectPanel.SetActive(true);
             this.GetComponent<PanelActive>().viewPanelOn = true;
@@ -240,6 +248,8 @@ public class InventoryFunction : MonoBehaviour
     public void ExitHeldItemView(GameObject panelToClose)
     {
         {
+            pickupSource.pitch = Random.Range(0.8f, 1f);
+            pickupSource.PlayOneShot(buttonClicked, 1f);
             usingInventroy = false;
             panelToClose.SetActive(false);
             this.GetComponent<PanelActive>().viewPanelOn = false;

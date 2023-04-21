@@ -785,7 +785,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Main Menu
+  testSource: {fileID: 924823140}
   testClip: {fileID: 0}
+  buttonClicked: {fileID: 8300000, guid: b6809bf02c850e3448c6794ccb8b7c36, type: 3}
 --- !u!114 &632357894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,7 +1546,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 
-  testClip: {fileID: 8300000, guid: 4a943ff8e5566b8439d46c0e545bcf1e, type: 3}
+  testSource: {fileID: 924823140}
+  testClip: {fileID: 8300000, guid: 076706e5af6e9004b971ec4e3e83478f, type: 3}
+  buttonClicked: {fileID: 0}
 --- !u!114 &924823142
 MonoBehaviour:
   m_ObjectHideFlags: 0

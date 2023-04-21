@@ -9,7 +9,9 @@ public class ObjectInteraction : MonoBehaviour
     private CameraScroll camScroll;
     public GameObject inventory;
     public AudioClip openPanel;
+    public AudioClip closePanel;
     private AudioSource openPanelSource;
+    private Coroutine coroutine;
 
     //private bool panelOpen;
 
@@ -43,8 +45,16 @@ public class ObjectInteraction : MonoBehaviour
         if (gameManager.GetComponent<PanelActive>().panelOn)
         {
             //gameManager.GetComponent<CameraScroll>().canScroll = true;
-            panel.SetActive(false);
-            gameManager.GetComponent<PanelActive>().panelOn = false;
+            openPanelSource.pitch = Random.Range(0.8f, 1f);
+            openPanelSource.PlayOneShot(closePanel, 1f);
+            coroutine = StartCoroutine(WaitTime());
         }
+    }
+
+    private IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(0.1f);
+        panel.SetActive(false);
+        gameManager.GetComponent<PanelActive>().panelOn = false;
     }
 }
