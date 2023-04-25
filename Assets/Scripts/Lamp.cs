@@ -10,8 +10,10 @@ public class Lamp : MonoBehaviour
     private string[] userInput;
     public GameObject dashButton;
     public GameObject dotButton;
+    public GameObject gameManager;
     public GameObject windowHint;
     private AudioSource lampSource;
+    public AudioClip ButtonClick;
     public AudioClip error;
     public GameObject paper;
     public GameObject hint;
@@ -19,6 +21,8 @@ public class Lamp : MonoBehaviour
     //public GameObject otherLamp;
     //private bool puzzleComplete;
     public GameObject[] progressBar;
+    public GameObject HintNotCollected;
+    public AudioClip paperSound;
 
     private Coroutine coroutine;
 
@@ -85,7 +89,9 @@ public class Lamp : MonoBehaviour
         {
             currentSequenceInput++;
             ShowLampProgress();
-            if(currentSequenceInput == 16)
+            lampSource.pitch = Random.Range(0.8f, 1f);
+            lampSource.PlayOneShot(ButtonClick, 1f);
+            if (currentSequenceInput == 16)
             {
                 tempWinEffect = Instantiate(winPar, particlePos.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
                 //puzzleComplete = true;
@@ -94,6 +100,8 @@ public class Lamp : MonoBehaviour
                 dotButton.SetActive(false);
                 dashButton.SetActive(false);
                 windowHint.SetActive(true);
+                HintNotCollected.SetActive(false);
+                gameManager.GetComponent<LampStartStop>().PuzzleComplete();
                 hint.SetActive(false);
                 lockInteractObj.SetActive(true);
                 lampSource.PlayOneShot(win, 1f);
@@ -143,6 +151,8 @@ public class Lamp : MonoBehaviour
 
     public void PaperCollected()
     {
+        lampSource.pitch = Random.Range(0.8f, 1f);
+        lampSource.PlayOneShot(paperSound, 1f);
         paper.SetActive(false);
         hint.SetActive(true);
     }
@@ -156,6 +166,8 @@ public class Lamp : MonoBehaviour
         dotButton.SetActive(false);
         dashButton.SetActive(false);
         windowHint.SetActive(true);
+        HintNotCollected.SetActive(false);
+        gameManager.GetComponent<LampStartStop>().PuzzleComplete();
         hint.SetActive(false);
         lockInteractObj.SetActive(true);
         lampSource.PlayOneShot(win, 1f);
