@@ -217,8 +217,8 @@ public class LetterLock : MonoBehaviour
         pinBackground.SetActive(true);
         pinSlots.SetActive(true);
         lockPanel.SetActive(false);
-        letterCHEATBtn.SetActive(false);
-        pinCHEATBtn.SetActive(true);
+        //letterCHEATBtn.SetActive(false);
+        //pinCHEATBtn.SetActive(true);
         Destroy(tempWinEffect);
         backgroundPlaceholder.SetActive(true);
     }

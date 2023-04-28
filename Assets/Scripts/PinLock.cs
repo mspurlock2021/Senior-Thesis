@@ -74,6 +74,8 @@ public class PinLock : MonoBehaviour
     private bool transitioningSlot7;
     private bool transitioningSlot8;
 
+    public GameObject firstBoxPlaceholder;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -263,6 +265,7 @@ public class PinLock : MonoBehaviour
         lockPanel.SetActive(false);
         lockSlots.SetActive(false);
         refPanel.SetActive(true);
+        firstBoxPlaceholder.SetActive(false);
         Destroy(tempWinEffect);
     }
     private IEnumerator LockSlot1WaitTime()

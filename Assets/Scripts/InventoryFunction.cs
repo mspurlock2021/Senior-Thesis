@@ -59,13 +59,13 @@ public class InventoryFunction : MonoBehaviour
         swapInvPage2.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown("2"))
-        {
-            SceneManager.LoadScene("Level 2");
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown("2"))
+    //    {
+    //        SceneManager.LoadScene("Level 2");
+    //    }
+    //}
     public void GrabObject(GameObject ObjToAddToInv)
     {
         for (int i = 0; i < 12; i++)

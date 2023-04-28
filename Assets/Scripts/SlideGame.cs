@@ -36,6 +36,8 @@ public class SlideGame : MonoBehaviour
     private GameObject tempWinEffect;
     public GameObject posterInteractObj;
 
+    public GameObject ninthPiece;
+
     private void Start()
     {
         OriginalSpot1 = Buttons[0].GetComponent<RectTransform>().anchoredPosition;
@@ -93,6 +95,7 @@ public class SlideGame : MonoBehaviour
                     gameManager.GetComponent<WinSound>().PlayWinSound();
                     tempWinEffect = Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
                     posterInteractObj.SetActive(true);
+                    ninthPiece.SetActive(true);
                     coroutine = StartCoroutine(WaitTime());
                 }
                
@@ -113,6 +116,7 @@ public class SlideGame : MonoBehaviour
         gameManager.GetComponent<WinSound>().PlayWinSound();
         tempWinEffect = Instantiate(winPar, posOfParticles.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         posterInteractObj.SetActive(true);
+        ninthPiece.SetActive(true);
         coroutine = StartCoroutine(WaitTime());
     }
 
@@ -133,6 +137,7 @@ public class SlideGame : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         slideGame.SetActive(false);
+        ninthPiece.SetActive(false);
         foreach (GameObject k in posterPieces)
         {
             k.SetActive(true);
